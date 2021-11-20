@@ -17,7 +17,9 @@ Before the analysis, we will perform exploratory data analysis to assess the typ
 
 From the exploratory data analysis, the median is a suitable estimator given the data is right skewed. To answer the inferential question posted above, we plan to do a hypothesis test for independence of a difference in medians of bee counts by site type using permutation. This test assumes that all observations are independent. This assumption is probably satisfied as all data are from observations taken at each site on the day separately.
 
-Result of the analysis will be reported as a table of the hypothesis test statistics and p-value in the final report. Thus far we have performed some exploratory data analysis, and the report for that can be found [here](https://github.com/UBC-MDS/DSCI_522_Group26_Bee/blob/main/src/EDA_bee.md "Exploratory data analysis report").
+Result of the analysis will be reported as a table of the hypothesis test statistics and p-value in the final report.
+
+Thus far we have performed some exploratory data analysis, and the report for that can be found [here](https://github.com/UBC-MDS/DSCI_522_Group26_Bee/blob/main/src/EDA_bee.md "Exploratory data analysis report").
 
 ## Usage
 
