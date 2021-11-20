@@ -51,7 +51,8 @@ on the day separately.
 Result of the analysis will be reported as a table of the hypothesis
 test statistics and p-value in the final report. Thus far we have
 performed some exploratory data analysis, and the report for that can be
-found here <u>++link to EDA report in the repo++</u>.
+found
+[here](https://github.com/UBC-MDS/DSCI_522_Group26_Bee/blob/main/src/EDA_bee.md "Exploratory data analysis report").
 
 ## Usage
 
