@@ -31,7 +31,7 @@ To replicate the analysis, clone this GitHub repository, install the dependencie
 
 ## License
 
-The materials used in this project are licensed under the Open Government Licence â Ontario. If re-using/re-mixing please provide attribution and link to this webpage.
+The materials used in this project are licensed under the Open Government Licence - Ontario. If re-using/re-mixing please provide attribution and link to this webpage.
 
 ## References
 

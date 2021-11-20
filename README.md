@@ -68,7 +68,7 @@ line/terminal from the root directory of this project:
 ## License
 
 The materials used in this project are licensed under the Open
-Government Licence â Ontario. If re-using/re-mixing please provide
+Government Licence - Ontario. If re-using/re-mixing please provide
 attribution and link to this webpage.
 
 ## References
