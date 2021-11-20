@@ -1,10 +1,11 @@
-README
+Bee Counts Comparison across Types of Bee Sites
 ================
-
-# Bee Counts Comparison across Types of Bee Sites
 
 -   Authors and contributors: Katia Aristova, Simon Guo, John Lee,
     Adrianne Leung
+
+A data analysis (inferential) project for MDS DSCI522 (Data Science
+Workflows) from Group 26
 
 ## Introduction
 
