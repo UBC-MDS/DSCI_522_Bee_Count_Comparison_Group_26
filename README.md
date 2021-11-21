@@ -18,7 +18,7 @@ Bumble bee population are experiencing rapid decline in North America. In the la
 As part of Ontario's Pollinator Action Plan, the Ministry of Environment, Conservation and Parks conducted Bumble Bee Diversity and Abundance Survey. The dataset for this project comes from this survey which can be found on the Open Data Ontario website:
 [link](https://data.ontario.ca/dataset/bumble-bee-diversity-and-abundance-survey "Bumble Bee Diversity and Abundance Survey"). The raw `csv` dataset can be accessed via this link: [dataset file](https://files.ontario.ca/moe_mapping/downloads/4Other/PHAP/Bumble_Bee_Public_Data.csv "Bumble Bee Public Data").
 
-Surveyors collected bumble bee counts at 57 seven location in southwestern Ontario, according to the dataset (please note, that the website says 46 but the dataset contains 67 locations) between 2015 and 2017. The methodology is absent from the website. Each site contains multiple observations for the same day. Sites were encoded as agricultural, natural or semi-natural remnant. 
+Surveyors collected bumble bee counts at 67 location in southwestern Ontario, according to the dataset (please note, that the website says 46 but the dataset contains 67 locations) between 2015 and 2017. The methodology is absent from the website. Each site contains multiple observations for the same day. Sites were encoded as agricultural, natural or semi-natural remnant. 
 
 The features include, species and bee type (e.g. borealis species worker), county, year, date, plant information (sparse, many missing values).
 
@@ -43,7 +43,7 @@ Result of the analysis will be reported as a table of the hypothesis test statis
 **Exploratory data analysis (EDA)**  
 Each row of the data set represents the number of bee counts of each species at the sampled bee site at the specified sample date. We are interested in the total bee count regardless of species, time, year, or bee type (worker, queen, etc.). Data wrangling was necessary to summarise the data set by grouping the sample date by year, bee site type and site id. Each row of the simplified dataset represents the number of bee counts per site.
 
-Prior to analysis, we performed EDA to assess the type of distribution and density of bee counts at each type of site, as well as to assess median and mean of bee counts at each site type. The distribution of bee counts of types of site are represented with histogram plot [fig 2]([https://github.com/UBC-MDS/DSCI_522_Group26_Bee/blob/main/src/proposal_histogram_small.PNG) and the density is displayed with violin plots combined with indication of median and mean values of bee counts on the same plot [fig 3](https://github.com/UBC-MDS/DSCI_522_Group26_Bee/blob/main/src/proposal_violin_small.PNG).
+Prior to analysis, we performed EDA to assess the type of distribution and density of bee counts at each type of site, as well as to assess median and mean of bee counts at each site type. The distribution of bee counts of types of site are represented with histogram plot [fig 2](https://github.com/UBC-MDS/DSCI_522_Group26_Bee/blob/main/src/proposal_histogram_small.PNG) and the density is displayed with violin plots combined with indication of median and mean values of bee counts on the same plot [fig 3](https://github.com/UBC-MDS/DSCI_522_Group26_Bee/blob/main/src/proposal_violin_small.PNG).
 
 The full EDA report can be found
 [here](https://github.com/UBC-MDS/DSCI_522_Group26_Bee/blob/main/src/EDA_bee.md "Exploratory data analysis report").
