@@ -46,7 +46,7 @@ Each row of the data set represents the number of bee counts of each species at 
 Prior to analysis, we performed EDA to assess the type of distribution and density of bee counts at each type of site, as well as to assess median and mean of bee counts at each site type. The distribution of bee counts of types of site are represented with histogram plot [fig 2](https://github.com/UBC-MDS/DSCI_522_Group26_Bee/blob/main/src/proposal_histogram_small.PNG) and the density is displayed with violin plots combined with indication of median and mean values of bee counts on the same plot [fig 3](https://github.com/UBC-MDS/DSCI_522_Group26_Bee/blob/main/src/proposal_violin_small.PNG).
 
 The full EDA report can be found
-[here](https://github.com/UBC-MDS/DSCI_522_Group26_Bee/blob/main/src/EDA_bee.md "Exploratory data analysis report").
+[here](https://github.com/UBC-MDS/DSCI_522_Group26_Bee/blob/main/src/eda_bee.md "Exploratory data analysis report").
 
 ### 1.4 Methodology
 As observed in EDA, the median is a suitable estimator given the data is right skewed. To answer the inferential question posted above, we plan to do a hypothesis test for independence of a
