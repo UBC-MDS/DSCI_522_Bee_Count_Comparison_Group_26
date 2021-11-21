@@ -23,7 +23,6 @@ The original data includes vast information about the survey sites and kinds of 
 | latitude           |                   | impatiens                               |                      |
 | longitude          |                   | fervidus                                |                      |
 | site type          |                   | borealis, etc.                          |                      |
-|
 
 # Preprocessing of the original data set
 
