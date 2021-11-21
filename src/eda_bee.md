@@ -16,13 +16,16 @@ The original data includes vast information about the survey sites and kinds of 
 - other site details, such as the date of the site visit
 
 
+**Table 1**. Column information of the original bumble bee data set
+
 | Region Info        | Time Info         |    Type of Bees (54 types in total)     |    Flowers           |   
-| -----------------  | ----------------- | --------------------------------------- | ---------------------|
-| county             | sample date       | bimaculatus                             | Flowers in bloom     | 
-| MOECC Site Number  | year              | griseocollis                            | Flowers bees         |
-| latitude           |                   | impatiens                               |                      |
-| longitude          |                   | fervidus                                |                      |
-| site type          |                   | borealis, etc.                          |                      |
+| -----------------  | ----------------- | ------------------- | ---------------------|
+| county             | sample date       | bimaculatus         | Flowers in bloom     | 
+| MOECC Site Number  | year              | griseocollis        | Flowers bees         |
+| latitude           |                   | impatiens           |                      |
+| longitude          |                   | fervidus            |                      |
+| site type          |                   | borealis, etc.      |                      |
+
 
 # Preprocessing of the original data set
 
@@ -32,6 +35,8 @@ Since the original data set contains vast amount of data, it needed to be prepro
 - categorize the locations as agricultural, natural, and semi-natural  areas
 
 The table below shows the number of each site where bumble bees were sampled.
+
+**Table 2**. Number of sampling sites 
 
 | Agricultural Area | Natural Area |  Natural Area |
 | ----------------: | -----------: | ------------: |
