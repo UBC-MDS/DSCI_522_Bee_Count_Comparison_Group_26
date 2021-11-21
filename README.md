@@ -27,7 +27,7 @@ Fig. 1 displays locations of each site. Southern Ontario is a highly populated s
 * Natural
 * Semi-natural remnant
 
-[Site map](http://www.moegisportal.ca/agol/AccessibleViewer/index.html?appid=e38703b018ff4e3ca09f2878879a4e34)
+[View map](http://www.moegisportal.ca/agol/AccessibleViewer/index.html?appid=e38703b018ff4e3ca09f2878879a4e34)
 
 ### 1.3 Project Question 
 In this project, we are aiming to answer the following question: 
