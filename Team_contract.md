@@ -36,7 +36,7 @@ Thursday 12/9: 2-4pm
 The group could arrange to have ad-hoc meeting on Slack or in-person in
 between the set schedule. All members are expected to attend the
 meetings. If a member cannot make a meeting, written notice must be
-given 24 hours before the meeting to discuss alternative options.
+given before the meeting by 10 a.m. on the day to discuss alternative options.
 
 ## Communication
 
