@@ -18,7 +18,7 @@ Bumble bee population are experiencing rapid decline in North America. In the la
 As part of Ontario's Pollinator Action Plan, the Ministry of Environment, Conservation and Parks conducted Bumble Bee Diversity and Abundance Survey. The dataset for this project comes from this survey which can be found on the Open Data Ontario website:
 [link](https://data.ontario.ca/dataset/bumble-bee-diversity-and-abundance-survey "Bumble Bee Diversity and Abundance Survey"). The raw `csv` dataset can be accessed via this link: [dataset file](https://files.ontario.ca/moe_mapping/downloads/4Other/PHAP/Bumble_Bee_Public_Data.csv "Bumble Bee Public Data").
 
-Surveyors collected bumble bee counts at 57 seven location in southwestern Ontario, according to the dataset (please note, that the website says 46 but the dataset contains 67 locations) between 2015 and 2017. The methodology is absent from the website. Most likely, the researchers conducted stratified random sampling at each site as each site contains multiple observations for the same day. Each site was encoded as agricultural, natural or semi-natural remnant. 
+Surveyors collected bumble bee counts at 57 seven location in southwestern Ontario, according to the dataset (please note, that the website says 46 but the dataset contains 67 locations) between 2015 and 2017. The methodology is absent from the website. Each site contains multiple observations for the same day. Sites were encoded as agricultural, natural or semi-natural remnant. 
 
 The features include, species and bee type (e.g. borealis species worker), county, year, date, plant information (sparse, many missing values).
 
@@ -34,14 +34,14 @@ Fig. 1 displays locations of each site. Southern Ontario is a highly populated s
 In this project, we are aiming to answer the following question: 
 Do the bumble bee counts vary depending on the type of site?
 
-*Null hypothesis*: The median bee count values are the same at agricultural, natural and semi-natural remnant sites in Southern Ontario.
-*Alternative hypothesis*: The median bee count is not the same at agricultural, natural and semi-natural remnant sites in Southern Ontario.
+**Null hypothesis**: The median bee count values are the same at agricultural, natural and semi-natural remnant sites in Southern Ontario.  
+**Alternative hypothesis**: The median bee count is not the same at agricultural, natural and semi-natural remnant sites in Southern Ontario.  
 
 Answering this question is important to see how the site type would impact the bee counts occurring in agricultural, natural and semi-natural sites. This can help direct planning in favour of pollination and bee health in agriculture, natural and semi-natural ecosystems.
 
 Result of the analysis will be reported as a table of the hypothesis test statistics and p-value in the final report.
 
-**Exploratory data analysis (EDA)**
+**Exploratory data analysis (EDA)**  
 Each row of the data set represents the number of bee counts of each species at the sampled bee site at the specified sample date. We are interested in the total bee count regardless of species, time, year, or bee type (worker, queen, etc.). Data wrangling was necessary to summarise the data set by grouping the sample date by year, bee site type and site id. Each row of the simplified dataset represents the number of bee counts per site.
 
 Prior to analysis, we performed EDA to assess the type of distribution and density of bee counts at each type of site, as well as to assess median and mean of bee counts at each site type. The distribution of bee counts of types of site are represented with histogram plot (fig. 2) and the density is displayed with violin plots combined with indication of median and mean values of bee counts on the same plot (fig. 3).
@@ -53,25 +53,25 @@ The full EDA report can be found
 As observed in EDA, the median is a suitable estimator given the data is right skewed. To answer the inferential question posted above, we plan to do a hypothesis test for independence of a
 difference in medians of bee counts by site type using permutation. This is an inferential question. Several ways of testing will be evaluated further to determine the best course of action:
 
-**One vs rest**
+**One vs rest**  
 Example:
 * Agriculture median vs median of (semi-natural and natural)
 * Natural median vs median of (semi-natural and agricultural)
 * Semi-natural remnant median vs median of (natural and agricultural)
 
-**Two groups**
-Since "semi-natural remnant" is not clearly defined, it could be included together with seminatural into one combine natural/semi-natural group.
+**Two groups**  
+Since "semi-natural remnant" is not clearly defined, it could be included together with seminatural into one combine natural/semi-natural group.  
 Example:
 * Agriculture median vs natural/semi-natural group
 
-**One vs all**
+**One vs all**  
 Example:
 * Agricultural median vs natural median
 * Agricultural median vs semi-natural remnant median
 * Natural median vs semi-natural remnant median
 
 **Assumptions**
-The simulation permutation test assumes that all observations are independent. As mentioned earlier, this assumption is likely satisfied as multiple observations were taken on the same day at each site using stratified random sampling technique.
+The simulation permutation test assumes that all observations are independent. As mentioned earlier, this assumption is likely satisfied as multiple observations were taken on the same day at each site using random sampling technique.
 
 **Limitations**
 The dataset is small. The exact collection methodology is unknown.
