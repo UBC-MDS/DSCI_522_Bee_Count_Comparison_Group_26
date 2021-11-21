@@ -9,10 +9,21 @@ The data set used in this project is the bumble bee data set prepared by the Min
 
 **Figure 1**. Bumble bee survey areas.
 
-The original data includes vast information about the survey sites and kinds of bumble bees. Some of the data includes:
+The original data includes vast information about the survey sites and kinds of bumble bees. The data set consists of total of 64 columns and includes: 
+
 - sampling locations, including GPS coordinates and the county name
 - the number of bumble bee individuals sampled at each site, listed for each species and for each caste of a species (queen, worker, male)
 - other site details, such as the date of the site visit
+
+
+| Region Info        | Time Info         |    Type of Bees (54 types in total)     |    Flowers           |   
+| -----------------  | ----------------- | --------------------------------------- | ---------------------|
+| county             | sample date       | bimaculatus                             | Flowers in bloom     | 
+| MOECC Site Number  | year              | griseocollis                            | Flowers bees         |
+| latitude           |                   | impatiens                               |                      |
+| longitude          |                   | fervidus                                |                      |
+| site type          |                   | borealis, etc.                          |                      |
+|
 
 # Preprocessing of the original data set
 
@@ -40,6 +51,13 @@ The following violin plot shows not only the distribution of the number of bees 
 <img src="proposal_violin_small.PNG" width="600">
 
 **Figure 3**. The distribution of bee counts with the mean and median
+
+Figure 4 shows the confidence of interval for the medians of the number of bees collected at each site. The hypothesis testing would be required to find out whether the number of bees collected at each site is different from one another.   
+
+<img src="bee_ci_plot.png" width="600">
+
+**Figure 4**. The confidence interval of bee counts with the median
+
 
 # References
 
