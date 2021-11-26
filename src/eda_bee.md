@@ -65,6 +65,7 @@ Figure 4 shows the jitter plot for the number of bees collected at each site. Th
 
 # References
 
+
 <div id="refs" class="references">
 
 <div id="ref-Streetetal">
