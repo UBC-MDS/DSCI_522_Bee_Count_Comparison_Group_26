@@ -58,7 +58,7 @@ The following violin plot shows not only the distribution of the number of bees 
 
 Figure 4 shows the jitter plot for the number of bees collected at each site. The hypothesis testing would be required to find out whether the number of bees collected at each site is different from one another.   
 
-
+<img src="bee_df_jitter.png" width="600">
 
 **Figure 4**. The distribution of the bees collected on different sites
 
