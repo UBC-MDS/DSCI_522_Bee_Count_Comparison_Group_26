@@ -46,7 +46,7 @@ The table below shows the number of each site where bumble bees were sampled.
 
 The following histogram shows the distributions of the bumble bee collected from different types of site. The distributions are highly right-skewed. The x axis of the following histogram was limited to 60 to show the shape of the distribution.
 
-<img src="bee_df_hist.png" width="400">
+<img src="bee_df_hist.png" width="500">
 
 **Figure 2**. The distribution of bee counts at each site type
 
