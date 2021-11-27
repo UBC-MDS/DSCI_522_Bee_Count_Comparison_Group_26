@@ -43,10 +43,10 @@ Result of the analysis will be reported as a table of the hypothesis test statis
 **Exploratory data analysis (EDA)**  
 Each row of the data set represents the number of bee counts of each species at the sampled bee site at the specified sample date. We are interested in the total bee count regardless of species, time, year, or bee type (worker, queen, etc.). Data wrangling was necessary to summarise the data set by grouping the sample date by year, bee site type and site id. Each row of the simplified dataset represents the number of bee counts per site.
 
-Prior to analysis, we performed EDA to assess the type of distribution and density of bee counts at each type of site, as well as to assess median and mean of bee counts at each site type. The distribution of bee counts of types of site are represented with histogram plot [fig 1](https://github.com/UBC-MDS/DSCI_522_Group26_Bee/blob/main/src/proposal_histogram_small.PNG) and the density is displayed with violin plots combined with indication of median and mean values of bee counts on the same plot [fig 2](https://github.com/UBC-MDS/DSCI_522_Group26_Bee/blob/main/src/proposal_violin_small.PNG).
+Prior to analysis, we performed EDA to assess the type of distribution and density of bee counts at each type of site, as well as to assess median and mean of bee counts at each site type. The distribution of bee counts of types of site are represented with histogram plot [fig 1](https://github.com/UBC-MDS/DSCI_522_Bee_Count_Comparison_Group_26/blob/main/src/figures/bee_df_hist.png) and the density is displayed with violin plots combined with indication of median and mean values of bee counts on the same plot [fig 2](https://github.com/UBC-MDS/DSCI_522_Bee_Count_Comparison_Group_26/blob/main/src/figures/bee_df_violin.png).
 
 The full EDA report can be found
-[here](https://github.com/UBC-MDS/DSCI_522_Group26_Bee/blob/main/src/eda_bee.md "Exploratory data analysis report").
+[here](https://github.com/UBC-MDS/DSCI_522_Bee_Count_Comparison_Group_26/blob/main/src/eda_bee.md "Exploratory data analysis report").
 
 ### 1.4 Methodology
 As observed in EDA, the median is a suitable estimator given the data is right skewed. To answer the inferential question posted above, we plan to do a hypothesis test for independence of a
