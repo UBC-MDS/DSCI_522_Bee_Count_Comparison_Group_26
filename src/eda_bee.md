@@ -5,7 +5,7 @@ Exploratory Data Analysis of the Bumble Bee Data Set
 
 The data set used in this project is the bumble bee data set prepared by the Ministry of the Environment, Conservation and Parks. This project was started to characterize the number of species of bumble bees and the relative abundances of these species. The bumble bees were collected from 67 locations in southwestern Ontario to compare the diversity of bees occuring in agricultural and more natural areas.
 
-<img src="Bumblebee_survey_area.png" width="600">
+<img src="figures/Bumblebee_survey_area.png" width="600">
 
 **Figure 1**. Bumble bee survey areas.
 
