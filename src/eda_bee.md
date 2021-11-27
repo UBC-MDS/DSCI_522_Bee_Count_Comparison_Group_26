@@ -46,19 +46,19 @@ The table below shows the number of each site where bumble bees were sampled.
 
 The following histogram shows the distributions of the bumble bee collected from different types of site. The distributions are highly right-skewed. The x axis of the following histogram was limited to 60 to show the shape of the distribution.
 
-<img src="bee_df_hist.png" width="500">
+<img src="figures/bee_df_hist.png" width="500">
 
 **Figure 2**. The distribution of bee counts at each site type
 
 The following violin plot shows not only the distribution of the number of bees but also the mean and median. The mean is shown as white dots, while the median is shown as black dots. In order to include all the data points, log scale was applied to the x-axis of the plot.
 
-<img src="bee_df_violin.png" width="600">
+<img src="figures/bee_df_violin.png" width="600">
 
 **Figure 3**. The distribution of bee counts with the mean and median
 
 Figure 4 shows the jitter plot for the number of bees collected at each site. The hypothesis testing would be required to find out whether the number of bees collected at each site is different from one another.   
 
-<img src="bee_df_jitter.png" width="700">
+<img src="figures/bee_df_jitter.png" width="700">
 
 **Figure 4**. The distribution of the bees collected on different sites
 
