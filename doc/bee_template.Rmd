@@ -41,19 +41,22 @@ The analysis aims to determine the differences in bee counts between sites:
 
 ## 2. Exploratory data analysis
 
-The following histogram shows the distributions of the bumble bee collected from different types of site. The distributions are highly right-skewed. The x axis of the following histogram was limited to 60 to show the shape of the distribution.
+The following histogram shows the distributions of the bumble bee collected from different types of site. The distributions are highly right-skewed. 
+The x axis of the following histogram was limited to 60 to show the shape of the distribution.
 
 ```{r plot_1, fig.width=10, fig.height=10, fig.cap="Figure 2. The distribution of bee counts at each site type", out.width="100%"}
 # image to be inserted
 ```
 
-The following violin plot shows not only the distribution of the number of bees but also the mean and median. The mean is shown as white dots, while the median is shown as black dots. In order to include all the data points, log scale was applied to the x-axis of the plot.
+The following violin plot shows not only the distribution of the number of bees but also the mean and median. The mean is shown as white dots, while the median is shown as black dots. 
+In order to include all the data points, log scale was applied to the x-axis of the plot.
 
 ```{r plot_2, fig.width=10, fig.height=10, fig.cap="Figure 3. The distribution of bee counts with the mean and median", out.width="100%"}
 # image to be inserted
 ```
 
-Figure 4 shows the jitter plot for the number of bees collected at each site. The hypothesis testing would be required to find out whether the number of bees collected at each site is different from one another.
+Figure 4 shows the jitter plot for the number of bees collected at each site. 
+The hypothesis testing would be required to find out whether the number of bees collected at each site is different from one another.
 
 ```{r plot_3, fig.width=10, fig.height=10, fig.cap="Figure 4. The distribution of the bees collected on different sites", out.width="100%"}
 # image to be inserted
