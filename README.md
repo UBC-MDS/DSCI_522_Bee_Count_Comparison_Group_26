@@ -43,25 +43,20 @@ Result of the analysis will be reported as a table of the hypothesis test statis
 **Exploratory data analysis (EDA)**  
 Each row of the data set represents the number of bee counts of each species at the sampled bee site at the specified sample date. We are interested in the total bee count regardless of species, time, year, or bee type (worker, queen, etc.). Data wrangling was necessary to summarise the data set by grouping the sample date by year, bee site type and site id. Each row of the simplified dataset represents the number of bee counts per site.
 
-Prior to analysis, we performed EDA to assess the type of distribution and density of bee counts at each type of site, as well as to assess median and mean of bee counts at each site type. The distribution of bee counts of types of site are represented with histogram plot [fig 1](https://github.com/UBC-MDS/DSCI_522_Bee_Count_Comparison_Group_26/blob/main/src/figures/bee_df_hist.png) and the density is displayed with violin plots combined with indication of median and mean values of bee counts on the same plot [fig 2](https://github.com/UBC-MDS/DSCI_522_Bee_Count_Comparison_Group_26/blob/main/src/figures/bee_df_violin.png).
+Prior to analysis, we performed EDA to assess the type of distribution and density of bee counts at each type of site, as well as to assess median and mean of bee counts at each site type. The distribution of bee counts of types of site are represented with histogram plot:
+
+![fig 1](https://github.com/UBC-MDS/DSCI_522_Bee_Count_Comparison_Group_26/blob/main/src/figures/bee_df_hist.png)
+
+and the density is displayed with violin plots combined with indication of median and mean values of bee counts on the same plot:
+
+![fig 2](https://github.com/UBC-MDS/DSCI_522_Bee_Count_Comparison_Group_26/blob/main/src/figures/bee_df_violin.png)
 
 The full EDA report can be found
 [here](https://github.com/UBC-MDS/DSCI_522_Bee_Count_Comparison_Group_26/blob/main/src/eda_bee.md "Exploratory data analysis report").
 
 ### 1.4 Methodology
-As observed in EDA, the median is a suitable estimator given the data is right skewed. To answer the inferential question posted above, we plan to do a hypothesis test for independence of a
-difference in medians of bee counts by site type using permutation. This is an inferential question. Several ways of testing will be evaluated further to determine the best course of action:
-
-**One vs rest**  
-Example:
-* Agriculture median vs median of (semi-natural and natural)
-* Natural median vs median of (semi-natural and agricultural)
-* Semi-natural remnant median vs median of (natural and agricultural)
-
-**Two groups**  
-Since "semi-natural remnant" is not clearly defined, it could be included together with seminatural into one combine natural/semi-natural group.  
-Example:
-* Agriculture median vs natural/semi-natural group
+As observed in EDA, the the data is right skewed. To answer the inferential question posted above, we plan to do a hypothesis test for independence of a
+difference in medians of bee counts by site type using Poisson regression analysis. Since the response variable, count of bees, is discreet, Poisson is a more suitable regression test.
 
 **One vs all**  
 Example:
@@ -69,20 +64,43 @@ Example:
 * Agricultural median vs semi-natural remnant median
 * Natural median vs semi-natural remnant median
 
-**Assumptions**
-The simulation permutation test assumes that all observations are independent. As mentioned earlier, this assumption is likely satisfied as multiple observations were taken on the same day at each site using random sampling technique.
+**Assumptions**  
+The Poisson regression analysis assumes that all observations are independent. As mentioned earlier, this assumption is likely satisfied as multiple observations were taken on the same day at each site using random sampling technique. More assumptions related to the use of regression are described in the full report.
 
-**Limitations**
+**Limitations**  
 The dataset is small. The exact collection methodology is unknown.
+
 ## 2. Usage
 
 To replicate the analysis, clone this GitHub repository, install the
 dependencies listed below, and run the following commands at the command
 line/terminal from the root directory of this project:
 
-<u>++ To be updated with the makefile in the future++</u>
+```
+# download data
 
-For now, the data can be downloaded with the `download_data.py` script in the /data/ repo.
+python src/download_data.py --url=https://files.ontario.ca/moe_mapping/downloads/4Other/PHAP/Bumble_Bee_Public_Data.csv --out_file=data/raw/Bumble_Bee_Public_Data.csv
+
+# preprocess data
+
+Rscript src/preprocess.R --input=data/raw/Bumble_Bee_Public_data.csv --out_dir=data/processed/
+
+
+# plot figures for eda report
+
+Rscript src/plot_eda_figures.R --csv_file=data/processed/processed_Bumble_Bee_Public_Data.csv --out_dir=src/figures
+
+# run eda report and create html file
+Rscript -e "rmarkdown::render('src/eda_bee.md')"
+
+# run analysis
+
+Rscript src/glm_analysis.R --file_path=data/processed/processed_Bumble_Bee_Public_Data.csv --output_folder=data/processed
+
+# run test results
+Rscript src/results_bee.R --test_agri=data/processed/agri_table.csv --test_nat=data/processed/nat_table.csv --out_dir=results
+
+```
 
 ### 2.1 Dependencies
 
@@ -92,9 +110,12 @@ For now, the data can be downloaded with the `download_data.py` script in the /d
     -   pandas==1.3.2
 -   R version 4.1.1 and R packages:
     -   knitr==1.33
+    -   docopt==0.7.1
     -   tidyverse==1.3.1
     -   ggplot2==3.3.5
     -   boot==1.3.28
+    -   testthat==3.1.0
+    -   broom==0.7.9
 
 ## 3. License
 
