@@ -49,19 +49,8 @@ The full EDA report can be found
 [here](https://github.com/UBC-MDS/DSCI_522_Bee_Count_Comparison_Group_26/blob/main/src/eda_bee.md "Exploratory data analysis report").
 
 ### 1.4 Methodology
-As observed in EDA, the median is a suitable estimator given the data is right skewed. To answer the inferential question posted above, we plan to do a hypothesis test for independence of a
-difference in medians of bee counts by site type using permutation. This is an inferential question. Several ways of testing will be evaluated further to determine the best course of action:
-
-**One vs rest**  
-Example:
-* Agriculture median vs median of (semi-natural and natural)
-* Natural median vs median of (semi-natural and agricultural)
-* Semi-natural remnant median vs median of (natural and agricultural)
-
-**Two groups**  
-Since "semi-natural remnant" is not clearly defined, it could be included together with seminatural into one combine natural/semi-natural group.  
-Example:
-* Agriculture median vs natural/semi-natural group
+As observed in EDA, the the data is right skewed. To answer the inferential question posted above, we plan to do a hypothesis test for independence of a
+difference in medians of bee counts by site type using Poisson regression analysis. Since the response variable, count of bees, is discreet, Poisson is a more suitable regression test.
 
 **One vs all**  
 Example:
@@ -70,10 +59,11 @@ Example:
 * Natural median vs semi-natural remnant median
 
 **Assumptions**
-The simulation permutation test assumes that all observations are independent. As mentioned earlier, this assumption is likely satisfied as multiple observations were taken on the same day at each site using random sampling technique.
+The Poisson regression analysis assumes that all observations are independent. As mentioned earlier, this assumption is likely satisfied as multiple observations were taken on the same day at each site using random sampling technique. More assumptions related to the use of regression are described in the full report.
 
 **Limitations**
 The dataset is small. The exact collection methodology is unknown.
+
 ## 2. Usage
 
 To replicate the analysis, clone this GitHub repository, install the
