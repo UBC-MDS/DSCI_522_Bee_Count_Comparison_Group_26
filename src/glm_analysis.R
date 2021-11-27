@@ -46,10 +46,4 @@ main <- function(file_path, output_folder) {
   write.csv(nat_table, file = paste0(output_folder, "/nat_table.csv"), row.names = FALSE)
 }
 
-
-
-# test_that("sterror should return 0 if vector values are all the same", {
-#   expect_equal(sterror(c(1, 1, 1)), 0)
-# })
-
 main(opt$file_path, opt$output_folder)
