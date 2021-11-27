@@ -40,11 +40,9 @@ main <- function(test_agri, test_nat, out_dir){
     relocate(pairs, .before = estimate) |>
     filter(pairs != "Natural(ref) vs agricultural") |>
     select(-term)
-  
-  result_summary <- kable(analysis_table, caption = "Table 2. Analysis results")
-  
-  # Output result summary table
-  saveRDS(result_summary, file = paste0(out_dir, "/result_summary.rds"))
+
+  # Output analysis results table
+  saveRDS(analysis_table, file = paste0(out_dir, "/analysis_results.rds"))
 }
 
 
