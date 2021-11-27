@@ -3,10 +3,11 @@
 
 "The script analyzes the dataset using the Poisson regression model
 
-Usage: analysis.R --file_path=<file_path>
+Usage: glm_analysis.R --file_path=<file_path> --output_folder=<output_folder>
 
 Options:
 --file_path=<file_path>   Path to the .csv data file
+--output_folder=<output_folder>  Path to storing output .csv tables
 " -> doc
 
 library(tidyverse)
@@ -18,7 +19,7 @@ library(docopt)
 
 opt <- docopt(doc)
 
-main <- function(file_path) {
+main <- function(file_path, output_folder) {
   
   # read in data
   data <- read_csv(file_path, show_col_types = FALSE)
@@ -37,9 +38,12 @@ main <- function(file_path) {
   agri_table <- tidy(pois_lr_agri)
   nat_table <- tidy(pois_lr_natural)
   
-  write.csv(agri_table, "agri_table.csv", row.names = FALSE)
-  write.csv(nat_table, "nat_table.csv", row.names = FALSE)
+  # write.csv(agri_table, "agri_table.csv", row.names = FALSE)
+  # write.csv(nat_table, "nat_table.csv", row.names = FALSE)
   
+  # Output analysis results table
+  write.csv(agri_table, file = paste0(output_folder, "/agri_table.csv"), row.names = FALSE)
+  write.csv(nat_table, file = paste0(output_folder, "/nat_table.csv"), row.names = FALSE)
 }
 
 
@@ -48,4 +52,4 @@ main <- function(file_path) {
 #   expect_equal(sterror(c(1, 1, 1)), 0)
 # })
 
-main(opt$file_path)
+main(opt$file_path, opt$output_folder)
