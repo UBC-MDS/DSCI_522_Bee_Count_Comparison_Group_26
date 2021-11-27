@@ -21,9 +21,7 @@ set.seed(2020)
 opt <- docopt(doc)
 main <- function(input, out_dir){
   # read data and convert class to factor
-  raw_data <- read.csv(input)
-
-  print(colnames(raw_data))
+  raw_data <- read.csv(input, skip = 1)
 
   raw_data <- raw_data |>
     select(1:7, contains("total")) |>
@@ -41,7 +39,8 @@ main <- function(input, out_dir){
     select(county, year, site_id, site_type, no_of_bees, sample_date)
   
   # write preprocessed data to the directory
-  write_csv(raw_data, paste0(out_dir, "/processed_Bumble_Bee_Public_Data.csv"))
+  dir.create(file.path(out_dir), showWarnings = FALSE)
+  write_csv(raw_data, paste0(out_dir, "processed_Bumble_Bee_Public_Data.csv"))
 }
 
 main(opt[["--input"]], opt[["--out_dir"]])
