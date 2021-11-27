@@ -1,12 +1,15 @@
 ---
 title: "Association between bumble bee count and site type in Southwestern Ontario"
-authors: "Katia Aristova, Simon Guo, John Lee, Adrianne Leung"
+authors: Katia Aristova, Simon Guo, John Lee, Adrianne Leung
 bibliography: references.bib
-output: 
+output:
   html_document:
-    toc: true
+    toc: yes
+  pdf_document:
+    toc: yes
   github_document:
-    toc: true
+    toc: yes
+always_allow_html: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -33,9 +36,10 @@ Bumble bee population are experiencing rapid decline in North America. In the la
 
 This report analyzes the Bumble Bee Diversity and Abundance Survey conducted by the Ministry of Environment, Conservation and Parks of Ontario. The data was collected between 2015-2017 in 67 locations across Southern Ontario, as can be explored in this map: [view](https://data.ontario.ca/dataset/bumble-bee-diversity-and-abundance-survey). The dataset is accessible on the Ontario Open data website: [view](https://data.ontario.ca/dataset/bumble-bee-diversity-and-abundance-survey). The surveyors recorded multiple variables including bee species, bee types, county names and flowers found on the site. The dataset description did not provide information regarding collection methodology. This project assumes the surveyors collected data using random sampling in a manner that is representative of the bee population in that region.
 
-```{r map, fig.width=10, fig.height=10, fig.cap="Figure 1.", out.width="100%"}
-# map to be inserted
+```{r map, echo=FALSE, fig.cap="Figure 1.Map of bee sites for sample collection", fig.height=10, fig.width=10, out.width="85%"}
+knitr::include_graphics("../src/figures/Bumblebee_survey_area.png")
 ```
+
 
 
 ### 1.2. Research question
@@ -50,27 +54,31 @@ The analysis aims to determine the differences in bee counts between sites:
 **Alternative hypothesis**: The bee count values are different between all pairs of agricultural, natural and semi-natural remnant sites in Southern Ontario.
 
 
+
 ## 2. Exploratory data analysis
 
 The following histogram shows the distributions of the bumble bee collected from different types of site. The distributions are highly right-skewed. 
 The x axis of the following histogram was limited to 60 to show the shape of the distribution.
 
-```{r plot_1, fig.width=10, fig.height=10, fig.cap="Figure 2. The distribution of bee counts at each site type", out.width="100%"}
-# image to be inserted
+```{r plot_1_hist_bee_distribution, echo=FALSE, fig.cap="Figure 2. The distribution of bee counts at each site type", fig.height=10, fig.width=10, out.width="80%"}
+knitr::include_graphics("../src/figures/bee_df_hist.png")
 ```
+
 
 The following violin plot shows not only the distribution of the number of bees but also the mean and median. The mean is shown as white dots, while the median is shown as black dots. 
 In order to include all the data points, log scale was applied to the x-axis of the plot.
 
-```{r plot_2, fig.width=10, fig.height=10, fig.cap="Figure 3. The distribution of bee counts with the mean and median", out.width="100%"}
-# image to be inserted
+```{r plot_2_violin_mean_median, echo=FALSE, fig.cap="Figure 3. The distribution of bee counts with the mean and median", fig.height=10, fig.width=10, out.width="80%"}
+knitr::include_graphics("../src/figures/bee_df_violin.png")
 ```
 
-Figure 4 shows the jitter plot for the number of bees collected at each site. 
+
+
+The below figure shows the jitter plot for the number of bees collected at each site. 
 The hypothesis testing would be required to find out whether the number of bees collected at each site is different from one another.
 
-```{r plot_3, fig.width=10, fig.height=10, fig.cap="Figure 4. The distribution of the bees collected on different sites", out.width="100%"}
-# image to be inserted
+```{r plot_3_jitter, echo=FALSE, fig.cap="Figure 4. The distribution of the bees collected on different sites", fig.height=10, fig.width=10, out.width="100%"}
+knitr::include_graphics("../src/figures/bee_df_jitter.png")
 ```
 
 
@@ -105,10 +113,12 @@ The four assumptions are assessed in our dataset and we conclude the below:
 
 Given the limited knowledge about this dataset, we will proceed with the Poisson regression model.
 
+Tools used for the analysis include R[@R], tidyverse[@tidyverse], knitr[@knitr].
+
 **Sidenote:** The zero-inflation model is likely an even more suitable model for this dataset. However, it is more difficult to interpret and understand how to use it appropriately as our team does not have experience with this type of modelling. Zero-inflation model is used when a large number of counts is zero, which is the case in this dataset.
 
 
-## 4. Results & Discussion
+## 4. Results
 ```{r include=FALSE}
 alpha <- 0.05
 ```
@@ -121,9 +131,11 @@ The p-values of the site type pairs Agricultural and Semi-natural remnant, as we
 However, for the pair Agricultural and Natural, the p-value is `r results$p_rounded[1]`, which is larger than `r alpha`. Therefore, we accept the null hypothesis that the bee count values are not different between agricultural and natural remnant sites in Southern Ontario.
 
 ### 4.2 Evaluation of coefficients
-The coefficients of site types also indicate that there is stronger association between the two pairs of site types Agricultural and Semi-natural remnant (coefficient `r results$coeff[2]`), as well as the pair Natural and Semi-natural remnant (coefficient `r results$coeff[3]`). 
+Since this is a log linear regression, the coefficients were converted (*e* to the power of estimated coefficient) and stored in the `coeff` column for easier interpretation.
 
-However, the coefficient of the pair of site types agricultural and natural remnant sites is `r results$coeff[1]`, which shows that there is minor association between the pair. 
+The coefficients of site types also indicate that there is a difference between the two pairs of site types Agricultural and Semi-natural remnant. The mean count for Semi-natural remnant is `r results$coeff[2]` times higher than Agricultural. The same applies to the Natural and Semi-natural remnant pair, where Semi-natural mean count is `r results$coeff[3]` times higher.
+
+However, the coefficient of the pair of site types Agricultural and Natural sites is `r results$coeff[1]`, which shows that there is minor difference between the pair.
 
 ### 4.3 Conclusion
 Both the p-values and coefficients lead to the same conclusion. 
@@ -133,7 +145,7 @@ Both the p-values and coefficients lead to the same conclusion.
 2. For the pair of site types Agricultural and Natural remnant, it is not statistically significant that the bee counts are different.
 
 ```{r analysis results, echo=FALSE, message=FALSE, warning=FALSE}
-kable(results[,!names(results) %in% c("p.value")], caption = "Table 2. Analysis results",
+kable(results[,!names(results) %in% c("p.value")], caption = "Table 1. Analysis results",
       col.names = c("Site type pairs",
                     "Estimate",
                     "Standard error",
@@ -141,9 +153,15 @@ kable(results[,!names(results) %in% c("p.value")], caption = "Table 2. Analysis 
                     "p-value (rounded)",
                     "Coefficient")) |>
   kable_styling(full_width = FALSE, position = "left")
-  
-
 ```
+
+## 5. Discussion
+
+The study would benefit from further analysis of Semi-natural remnant type characteristics. Currently, the information is lacking in regards to what makes these sites more attractive to the bees. One explanation could be that the agricultural sites have mono-cultural crops that may or may not be attractive. Pesticide use could also be a factor. It is also unclear how "natural" the Natural site type is given the highly developed landscape of Southern Ontario. Human activities have disturbed and fragmented habitats. A Semi-natural site could potentially have more plant diversity if the plants are planted deliberately, for example.
+
+### 5.1 Future directions
+
+The zero-inflation analysis found that all counts are significantly different. However, we lack expertise to draw conclusion from this analysis because zeros are treated as a separate part of the test analysis using the `pscl` package function `zeroinfl`. It would be useful to come back to this problem and see if it can be reevaluated with a zero-inflation model. More information can be found in the Jupyter notebook file containing the literate code for this project (sections 4.3 and 5.3): [view](https://github.com/UBC-MDS/DSCI_522_Bee_Count_Comparison_Group_26/blob/main/src/literate_code/main_literal_code_analysis.ipynb).
 
 
 ## References
