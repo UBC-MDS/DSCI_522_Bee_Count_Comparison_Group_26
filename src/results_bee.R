@@ -2,11 +2,7 @@
 # date: 2021-11-26
 
 "This script creates a table of analysis result summary.
-<<<<<<< HEAD
-Usage: src/results_bee.R --test_agri=<test_agri> --test_nat=<test_nat> --out_dir=<out_dir>
-=======
 Usage: src/bee_results.R --test_agri=<test_agri> --test_nat=<test_nat> --out_dir=<out_dir>
->>>>>>> 31ea3b0642dd891fcf243ecf51f619ed52a6c2b5
 
 Options:
 --test_agri=<test_agri>  Path (including filename) to test data with baseline Agricultural site type (which needs to be saved as a csv file)
@@ -35,11 +31,7 @@ main <- function(test_agri, test_nat, out_dir){
   analysis_table <- rbind(agri_table, nat_table) |>
     filter(term != "(Intercept)") |>
     mutate(p_rounded = round(`p.value`, 3),
-<<<<<<< HEAD
            coeff = round(exp(estimate), 3),
-=======
-           coeff = exp(estimate),
->>>>>>> 31ea3b0642dd891fcf243ecf51f619ed52a6c2b5
            pairs = case_when(
              term == 'site_typeNatural' ~ "Agricultural(ref) vs natural",
              term == 'site_typeSemi-natural remnant' ~ "Agricultural(ref) vs semi-natural remnant",
