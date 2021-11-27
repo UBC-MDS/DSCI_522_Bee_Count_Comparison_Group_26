@@ -58,10 +58,10 @@ Example:
 * Agricultural median vs semi-natural remnant median
 * Natural median vs semi-natural remnant median
 
-**Assumptions**
+**Assumptions**  
 The Poisson regression analysis assumes that all observations are independent. As mentioned earlier, this assumption is likely satisfied as multiple observations were taken on the same day at each site using random sampling technique. More assumptions related to the use of regression are described in the full report.
 
-**Limitations**
+**Limitations**  
 The dataset is small. The exact collection methodology is unknown.
 
 ## 2. Usage
