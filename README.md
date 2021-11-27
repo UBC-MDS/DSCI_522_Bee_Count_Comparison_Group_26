@@ -80,9 +80,31 @@ To replicate the analysis, clone this GitHub repository, install the
 dependencies listed below, and run the following commands at the command
 line/terminal from the root directory of this project:
 
-<u>++ To be updated with the makefile in the future++</u>
+```
+# download data
 
-For now, the data can be downloaded with the `download_data.py` script in the /data/ repo.
+python src/download_data.py --url=https://files.ontario.ca/moe_mapping/downloads/4Other/PHAP/Bumble_Bee_Public_Data.csv --out_file=data/raw/Bumble_Bee_Public_Data.csv
+
+# preprocess data
+
+Rscript src/preprocess.R --input=data/raw/Bumble_Bee_Public_data.csv --out_dir=data/processed/
+
+
+# plot figures for eda report
+
+Rscript src/plot_eda_figures.R --csv_file=data/processed/processed_Bumble_Bee_Public_Data.csv --out_dir=src/figures
+
+# run eda report and create html file
+Rscript -e "rmarkdown::render('src/eda_bee.md')"
+
+# run analysis
+
+Rscript src/glm_analysis.R --file_path=data/processed/processed_Bumble_Bee_Public_Data.csv --output_folder=data/processed
+
+# run test results
+Rscript src/results_bee.R --test_agri=data/processed/agri_table.csv --test_nat=data/processed/nat_table.csv --out_dir=results
+
+```
 
 ### 2.1 Dependencies
 
@@ -95,6 +117,7 @@ For now, the data can be downloaded with the `download_data.py` script in the /d
     -   tidyverse==1.3.1
     -   ggplot2==3.3.5
     -   boot==1.3.28
+    -   testthat==3.1.0
 
 ## 3. License
 
