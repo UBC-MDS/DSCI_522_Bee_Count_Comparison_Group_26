@@ -1,0 +1,91 @@
+---
+title: "Association between bumble bee count and site type in Southwestern Ontario"
+bibliography: references.bib
+output: 
+  github_document:
+    toc: True
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(testthat)
+library(tidyverse)
+library(broom)
+library(knitr)
+library(docopt)
+```
+
+## 1. Introduction
+
+Bumble bee population are experiencing rapid decline in North America. In the last 20 years, certain bumble bee species abundance decreased by 96% across the United States [@cameron2011patterns]. This phenomenon is not limited to North America, European bee colonies also experience collapses and sudden bee deaths [@bacandritsos2010sudden; @scheper2014museum]. Researchers proposed a variety of associations and causes ranging from pesticide use [@henry2012common], to mite infestation [@brettell2017oldest], as all as habitat loss and climate change. The status of bee population health, diversity and abundance remains an important topic.
+
+### 1.1. Dataset
+
+This report analyzes the Bumble Bee Diversity and Abundance Survey conducted by the Ministry of Environment, Conservation and Parks of Ontario. The data was collected between 2015-2017 in 67 locations across Southern Ontario, as can be explored in this map: [view](https://data.ontario.ca/dataset/bumble-bee-diversity-and-abundance-survey). The dataset is accessible on the Ontario Open data website: [view](https://data.ontario.ca/dataset/bumble-bee-diversity-and-abundance-survey). The surveyors recorded multiple variables including bee species, bee types, county names and flowers found on the site. The dataset description did not provide information regarding collection methodology. This project assumes the surveyors collected data using random sampling in a manner that is representative of the bee population in that region.
+
+```{r map, fig.width=10, fig.height=10, fig.cap="Figure 1.", out.width="100%"}
+# map to be inserted
+```
+
+### 1.2. Research question
+
+The analysis aims to determine the differences in bee counts between sites:
+
+- Agricultural
+- Natural
+- Semi-natural remnant
+
+**Null hypothesis**: The bee count values are not different between all pairs of agricultural, natural and semi-natural remnant sites in Southern Ontario.  
+**Alternative hypothesis**: The bee count values are different between all pairs of agricultural, natural and semi-natural remnant sites in Southern Ontario. 
+
+## 2. Exploratory data analysis
+
+```{r plot_1, fig.width=10, fig.height=10, fig.cap="Figure 2.", out.width="100%"}
+# image to be inserted
+```
+
+```{r plot_2, fig.width=10, fig.height=10, fig.cap="Figure 3.", out.width="100%"}
+# image to be inserted
+```
+
+```{r plot_3, fig.width=10, fig.height=10, fig.cap="Figure 4.", out.width="100%"}
+# image to be inserted
+```
+
+## 3. Methodology
+
+In this project, all possible relationships will be analyzed:
+
+- Agricultural vs natural
+- Agricultural vs semi-natural remnant
+- Natural vs semi-natural remnant
+
+Poisson regression model and the zero-inflation model are two candidates for modeling the relationship between counts and site types.
+
+Counts is a discrete variable making Anova and permutation tests using means or medians inappropriate to use. According to @beyond, Poisson regression is a suitable model for this problem because it is typically used to model counts per unit of space or time. This is the case with the bee count survey. The parameter of interest is λ~i~ which is the average number of bees per unit of space. The formula for this model is:  *log(λ~i~) = β~0~ + β~1~ x~i~*
+
+@beyond describe the following assumptions:
+
+>"1. Poisson Response: The response variable is a count per unit of time or space, described by a Poisson distribution.  
+2. Independence: The observations must be independent of one another.  
+3. Mean=Variance: By definition, the mean of a Poisson random variable must be equal to its variance.  
+4. Linearity: The log of the mean rate, log(λ), must be a linear function of x."
+
+*Source: direct quote from:* @beyond
+
+1. The bee survey dataset satisfies the first assumption the number of bees is a count variable per unit of space (and time).  
+2. We do not know how the samples have been collected but it is very plausible they were collected independently.  
+3. We assume that the count of bees (in the population) has equal mean and variance.
+4. We assume that the average number of bees per unit of space and time has a linear relationship with the site type.
+
+Given the limited knowledge about this dataset, we will proceed with the Poisson regression model.
+
+**Sidenote:** The zero-inflation model is likely an even more suitable model for this dataset. However, it is more difficult to interpret and understand how to use it appropriately as our team does not have experience with this type of modelling. Zero-inflation model is used when a large number of counts is zero, which is the case in this dataset.
+
+## 4. Results
+
+## 5. Discussion
+
+## References
