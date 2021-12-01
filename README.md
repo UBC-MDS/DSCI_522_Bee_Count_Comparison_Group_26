@@ -100,6 +100,9 @@ Rscript src/glm_analysis.R --file_path=data/processed/processed_Bumble_Bee_Publi
 # run test results
 Rscript src/results_bee.R --test_agri=data/processed/agri_table.csv --test_nat=data/processed/nat_table.csv --out_dir=results
 
+# render final report
+Rscript -e "rmarkdown::render('doc/report_bee.Rmd', output_format = 'html_document')"
+
 ```
 
 ### 2.1 Dependencies
