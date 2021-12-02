@@ -124,7 +124,7 @@ Rscript -e "rmarkdown::render('doc/report_bee.Rmd', output_format = 'html_docume
 
 The materials used in this project are licensed under the Open
 Government Licence - Ontario. If re-using/re-mixing please provide
-attribution and link to this webpage.
+attribution and link to this [webpage](https://www.ontario.ca/page/open-government-licence-ontario).
 
 ## 4. References
 
