@@ -19,14 +19,14 @@ Ontario
 
 Bumble bee population are experiencing rapid decline in North America.
 In the last 20 years, certain bumble bee species abundance decreased by
-96% across the United States (Cameron et al. 2011). This phenomenon is
-not limited to North America, European bee colonies also experience
-collapses and sudden bee deaths (Bacandritsos et al. 2010; Scheper et
-al. 2014). Researchers proposed a variety of associations and causes
-ranging from pesticide use (Henry et al. 2012), to mite infestation
-(Brettell and Martin 2017), as all as habitat loss and climate change.
-The status of bee population health, diversity and abundance remains an
-important topic.
+96% across the United States \[@cameron2011patterns\]. This phenomenon
+is not limited to North America, European bee colonies also experience
+collapses and sudden bee deaths \[@bacandritsos2010sudden;
+@scheper2014museum\]. Researchers proposed a variety of associations and
+causes ranging from pesticide use \[@henry2012common\], to mite
+infestation \[@brettell2017oldest\], as all as habitat loss and climate
+change. The status of bee population health, diversity and abundance
+remains an important topic.
 
 ### 1.1. Dataset
 
@@ -85,6 +85,36 @@ another.
 
 <img src="../src/figures/bee_df_jitter.png" title="Figure 4. The distribution of the bees collected on different sites" alt="Figure 4. The distribution of the bees collected on different sites" width="100%" />
 
+The histograms and the violin plots show that the data is skewed to the
+right because most counts are zero. Even if the response variable was
+continous (e.g. weight instead of count), using means would not be
+appropriate since the data is skewed.
+
+Initially, the approach was to use grouped data by site id. This
+approached yielded more counts as the rows were summed. However, it was
+the wrong approach as each observation should be treated independently
+since they are independent and random observations.
+
+The GPS coordinates were omitted the project is not looking at specific
+locations but the rather location types. Other features like species
+names were also omitted as this project aims to look at site types. If
+our group has a domain expert, it would be useful to also analyze
+species types and bee types. Without an expert it is impossible to
+interpret outcomes of more specific analysis since we do not know which
+species are more common or which bee types are more common.
+
+**Data quality**
+
+We assume the data was collected in a way that is unbiased and
+generalizable to the Southwestern Ontario region. The dataset was
+collected by the Ministry of Environment, Conservation and Parks of
+Ontario, so it is likely they used randomized sampling techniques.
+
+All of the data was collected between May and August each year between
+2015 and 2017. As a result, data collection controls for seasons
+(i.e. all site types are visited during same time periods, rather than
+having one site type visited in the fall and one in the summer).
+
 ## 3. Methodology
 
 In this project, all possible relationships will be analyzed:
@@ -97,25 +127,27 @@ Poisson regression model and the zero-inflation model are two candidates
 for modeling the relationship between counts and site types.
 
 Counts is a discrete variable making Anova and permutation tests using
-means or medians inappropriate to use. According to (Roback and Legler
-2021), Poisson regression is a suitable model for this problem because
-it is typically used to model counts per unit of space or time. This is
-the case with the bee count survey. The parameter of interest is
-*λ*<sub>*i*</sub> which is the average number of bees per unit of space.
-The formula for this model is:
-***l**o**g*(*λ*<sub>*i*</sub>=*β*<sub>0</sub>+*β*<sub>1</sub>*x*<sub>*i*</sub>)**
+means or medians inappropriate to use. According to
+\[@roback2021beyond\], Poisson regression is a suitable model for this
+problem because it is typically used to model counts per unit of space
+or time. This is the case with the bee count survey. The parameter of
+interest is $\\\\lambda_i$ which is the average number of bees per unit
+of space. The formula for this model is:
+**$log(\\\\lambda_i = \\\\beta_0 + \\\\beta_1x_i)$**
 
-Roback and Legler (2021) describe the following assumptions:
+@roback2021beyond describe the following assumptions:
 
 > <font size="2.5">1. Poisson Response: The response variable is a count
-> per unit of time or space, described by a Poisson distribution.<br> 2.
-> Independence: The observations must be independent of one another.
-> <br> 3. Mean=Variance: By definition, the mean of a Poisson random
-> variable must be equal to its variance. <br> 4. Linearity: The log of
-> the mean rate, *l**o**g*(*λ*<sub>*i*</sub>), must be a linear function
-> of *x*.</font>
+> per unit of time or space, described by a Poisson distribution.<br>
+>
+> 1.  Independence: The observations must be independent of one another.
+>     <br>
+> 2.  Mean=Variance: By definition, the mean of a Poisson random
+>     variable must be equal to its variance. <br>
+> 3.  Linearity: The log of the mean rate, $log(\\\\lambda_i$), must be
+>     a linear function of *x*.</font>
 
-*Source: direct quote from Roback and Legler (2021) *
+*Source: direct quote from @roback2021beyond*
 
 The four assumptions are assessed in our dataset and we conclude the
 below:
@@ -132,8 +164,8 @@ below:
 Given the limited knowledge about this dataset, we will proceed with the
 Poisson regression model.
 
-Tools used for the analysis include R(R Core Team 2021),
-tidyverse(Wickham et al. 2019), knitr(Xie 2014).
+Tools used for the analysis include R\[@R\], tidyverse\[@tidyverse\],
+knitr\[@knitr\].
 
 **Sidenote:** The zero-inflation model is likely an even more suitable
 model for this dataset. However, it is more difficult to interpret and
@@ -145,9 +177,9 @@ dataset.
 ## 4. Results
 
 To compare the differences in bee counts between site types, a
-significance level *α* = 0.05 is used to evaluate the p-values of the
-Poisson regression test of the three pairs of baseline and response
-variables. We can see the results of the test in Table 2 below.
+significance level $\\\\alpha$ = 0.05 is used to evaluate the p-values
+of the Poisson regression test of the three pairs of baseline and
+response variables. We can see the results of the test in Table 2 below.
 
 ### 4.1 Evaluation of p-value
 
@@ -309,86 +341,3 @@ Jupyter notebook file containing the literate code for this project
 [view](https://github.com/UBC-MDS/DSCI_522_Bee_Count_Comparison_Group_26/blob/main/src/literate_code/main_literal_code_analysis.ipynb).
 
 ## References
-
-<div id="refs" class="references csl-bib-body hanging-indent">
-
-<div id="ref-bacandritsos2010sudden" class="csl-entry">
-
-Bacandritsos, N, A Granato, G Budge, I Papanastasiou, E Roinioti, M
-Caldon, C Falcaro, A Gallina, and F Mutinelli. 2010. “Sudden Deaths and
-Colony Population Decline in Greek Honey Bee Colonies.” *Journal of
-Invertebrate Pathology* 105 (3): 335–40.
-
-</div>
-
-<div id="ref-brettell2017oldest" class="csl-entry">
-
-Brettell, Laura E, and Stephen J Martin. 2017. “Oldest Varroa Tolerant
-Honey Bee Population Provides Insight into the Origins of the Global
-Decline of Honey Bees.” *Scientific Reports* 7 (1): 1–7.
-
-</div>
-
-<div id="ref-cameron2011patterns" class="csl-entry">
-
-Cameron, Sydney A, Jeffrey D Lozier, James P Strange, Jonathan B Koch,
-Nils Cordes, Leellen F Solter, and Terry L Griswold. 2011. “Patterns of
-Widespread Decline in North American Bumble Bees.” *Proceedings of the
-National Academy of Sciences* 108 (2): 662–67.
-
-</div>
-
-<div id="ref-henry2012common" class="csl-entry">
-
-Henry, Mickaël, Maxime Beguin, Fabrice Requier, Orianne Rollin,
-Jean-François Odoux, Pierrick Aupinel, Jean Aptel, Sylvie Tchamitchian,
-and Axel Decourtye. 2012. “A Common Pesticide Decreases Foraging Success
-and Survival in Honey Bees.” *Science* 336 (6079): 348–50.
-
-</div>
-
-<div id="ref-R" class="csl-entry">
-
-R Core Team. 2021. *R: A Language and Environment for Statistical
-Computing*. Vienna, Austria: R Foundation for Statistical Computing.
-<https://www.R-project.org/>.
-
-</div>
-
-<div id="ref-roback2021beyond" class="csl-entry">
-
-Roback, Paul, and Julie Legler. 2021. *Beyond Multiple Linear
-Regression: Applied Generalized Linear Models and Multilevel Models in
-r*. CRC Press.
-
-</div>
-
-<div id="ref-scheper2014museum" class="csl-entry">
-
-Scheper, Jeroen, Menno Reemer, Ruud van Kats, Wim A Ozinga, Giel TJ van
-der Linden, Joop HJ Schaminée, Henk Siepel, and David Kleijn. 2014.
-“Museum Specimens Reveal Loss of Pollen Host Plants as Key Factor
-Driving Wild Bee Decline in the Netherlands.” *Proceedings of the
-National Academy of Sciences* 111 (49): 17552–57.
-
-</div>
-
-<div id="ref-tidyverse" class="csl-entry">
-
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy
-D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019.
-“Welcome to the <span class="nocase">tidyverse</span>.” *Journal of Open
-Source Software* 4 (43): 1686. <https://doi.org/10.21105/joss.01686>.
-
-</div>
-
-<div id="ref-knitr" class="csl-entry">
-
-Xie, Yihui. 2014. “Knitr: A Comprehensive Tool for Reproducible Research
-in R.” In *Implementing Reproducible Computational Research*, edited by
-Victoria Stodden, Friedrich Leisch, and Roger D. Peng. Chapman;
-Hall/CRC. <http://www.crcpress.com/product/isbn/9781466561595>.
-
-</div>
-
-</div>
