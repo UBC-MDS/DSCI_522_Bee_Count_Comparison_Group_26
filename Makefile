@@ -2,7 +2,7 @@
 # author: Simon Guo
 # date: 2021-12-02
 
-all: results/analysis_results.rds src/figures/bee_df_hist.png src/figures/Bumblebee_survey_area.png  src/figures/bee_df_jitter.png src/figures/bee_df_violin.png docs/report_bee.Rmd
+all: results/analysis_results.rds src/figures/bee_df_hist.png src/figures/Bumblebee_survey_area.png  src/figures/bee_df_jitter.png src/figures/bee_df_violin.png docs/report_bee.md docs/report_bee.html docs/report_bee.pdf
 
 # download data
 data/raw/Bumble_Bee_Public_Data.csv: src/download_data.py
@@ -30,10 +30,11 @@ results/analysis_results.rds: src/results_bee.R data/processed/agri_table.csv da
 
 # render final report
 docs/report_bee.md docs/report_bee.html docs/report_bee.pdf: docs/report_bee.Rmd docs/references.bib results/analysis_results.rds
-	Rscript -e "rmarkdown::render('docs/report_bee.Rmd', output_format = 'html_document')"
+	Rscript -e "rmarkdown::render('docs/report_bee.Rmd', output_format = 'all')"
 
 clean: 
 	rm -rf data
 	rm -rf results
 	rm -rf docs/report_bee.md docs/report_bee.html docs/report_bee.pdf
+	rm -f src/figures/bee_df_hist.png src/figures/bee_df_jitter.png src/figures/bee_df_violin.png
 			
