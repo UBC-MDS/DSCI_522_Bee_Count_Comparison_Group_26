@@ -3,13 +3,12 @@ title: "Association between bumble bee count and site type in Southwestern Ontar
 authors: Katia Aristova, Simon Guo, John Lee, Adrianne Leung
 bibliography: references.bib
 output:
-#  pdf_document:
-#    toc: yes
+  pdf_document:
+    toc: yes
   html_document:
     toc: yes
-    keep_md: True
-#  github_document:
-#    toc: yes
+  github_document:
+    toc: yes
 always_allow_html: yes
 ---
 
@@ -36,7 +35,7 @@ Bumble bee population are experiencing rapid decline in North America. In the la
 
 This report analyzes the Bumble Bee Diversity and Abundance Survey conducted by the Ministry of Environment, Conservation and Parks of Ontario. The data was collected between 2015-2017 in 67 locations across Southern Ontario, as can be explored in this map: [view](https://data.ontario.ca/dataset/bumble-bee-diversity-and-abundance-survey). The dataset is accessible on the Ontario Open data website: [view](https://data.ontario.ca/dataset/bumble-bee-diversity-and-abundance-survey). The surveyors recorded multiple variables including bee species, bee types, county names and flowers found on the site. The dataset description did not provide information regarding collection methodology. This project assumes the surveyors collected data using random sampling in a manner that is representative of the bee population in that region.
 
-```{r map, echo=FALSE, fig.cap="Figure 1. Map of bee sites for sample collection", fig.height=10, fig.width=10, out.width="85%"}
+```{r map, echo=FALSE, fig.cap="Map of bee sites for sample collection", fig.height=10, fig.width=10, out.width="85%"}
 knitr::include_graphics("../src/figures/Bumblebee_survey_area.png")
 ```
 
@@ -55,19 +54,19 @@ The analysis aims to determine the differences in bee counts between sites:
 
 The following histogram shows the distributions of the bumble bee collected from different types of site. The distributions are highly right-skewed. The x axis of the following histogram was limited to 60 to show the shape of the distribution.
 
-```{r plot_1_hist_bee_distribution, echo=FALSE, fig.cap="Figure 2. The distribution of bee counts at each site type", fig.height=10, fig.width=10, out.width="80%"}
+```{r plot_1_hist_bee_distribution, echo=FALSE, fig.cap="The distribution of bee counts at each site type", fig.height=10, fig.width=10, out.width="80%"}
 knitr::include_graphics("../src/figures/bee_df_hist.png")
 ```
 
 The following violin plot shows not only the distribution of the number of bees but also the mean and median. The mean is shown as white dots, while the median is shown as black dots. In order to include all the data points, log scale was applied to the x-axis of the plot.
 
-```{r plot_2_violin_mean_median, echo=FALSE, fig.cap="Figure 3. The distribution of bee counts with the mean and median", fig.height=10, fig.width=10, out.width="80%"}
+```{r plot_2_violin_mean_median, echo=FALSE, fig.cap="The distribution of bee counts with the mean and median", fig.height=10, fig.width=10, out.width="80%"}
 knitr::include_graphics("../src/figures/bee_df_violin.png")
 ```
 
 The below figure shows the jitter plot for the number of bees collected at each site. The hypothesis testing would be required to find out whether the number of bees collected at each site is different from one another.
 
-```{r plot_3_jitter, echo=FALSE, fig.cap="Figure 4. The distribution of the bees collected on different sites", fig.height=10, fig.width=10, out.width="100%"}
+```{r plot_3_jitter, echo=FALSE, fig.cap="The distribution of the bees collected on different sites", fig.height=10, fig.width=10, out.width="100%"}
 knitr::include_graphics("../src/figures/bee_df_jitter.png")
 ```
 
@@ -148,7 +147,7 @@ Both the p-values and coefficients lead to the same conclusion.
 2.  For the pair of site types Agricultural and Natural remnant, it is not statistically significant that the bee counts are different.
 
 ```{r analysis results, echo=FALSE, message=FALSE, warning=FALSE}
-kable(results[,!names(results) %in% c("p.value")], caption = "Table 1. Analysis results",
+kable(results[,!names(results) %in% c("p.value")], caption = "Analysis results",
       col.names = c("Site type pairs",
                     "Estimate",
                     "Standard error",
