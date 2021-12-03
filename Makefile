@@ -35,6 +35,7 @@ docs/report_bee.md docs/report_bee.html docs/report_bee.pdf: docs/report_bee.Rmd
 clean: 
 	rm -rf data
 	rm -rf results
+	rm -rf src/eda_bee.html
 	rm -rf docs/report_bee.md docs/report_bee.html docs/report_bee.pdf
 	rm -f src/figures/bee_df_hist.png src/figures/bee_df_jitter.png src/figures/bee_df_violin.png
 			
