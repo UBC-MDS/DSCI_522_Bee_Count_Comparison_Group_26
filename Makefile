@@ -2,7 +2,7 @@
 # author: Simon Guo
 # date: 2021-12-02
 
-all: results/analysis_results.rds src/figures/bee_df_hist.png src/figures/Bumblebee_survey_area.png  src/figures/bee_df_jitter.png src/figures/bee_df_violin.png src/eda_bee.html docs/report_bee.md docs/report_bee.html docs/report_bee.pdf
+all: results/analysis_results.rds src/figures/bee_df_hist.png src/figures/Bumblebee_survey_area.png  src/figures/bee_df_jitter.png src/figures/bee_df_violin.png src/eda_bee.html docs/report_bee.html
 
 # download data
 data/raw/Bumble_Bee_Public_Data.csv: src/download_data.py
@@ -29,13 +29,13 @@ results/analysis_results.rds: src/results_bee.R data/processed/agri_table.csv da
 	Rscript src/results_bee.R --test_agri=data/processed/agri_table.csv --test_nat=data/processed/nat_table.csv --out_dir=results
 
 # render final report
-docs/report_bee.md docs/report_bee.html docs/report_bee.pdf: docs/report_bee.Rmd docs/references.bib results/analysis_results.rds
-	Rscript -e "rmarkdown::render('docs/report_bee.Rmd', output_format = 'all')"
+docs/report_bee.html: docs/report_bee.Rmd docs/references.bib results/analysis_results.rds
+	Rscript -e "rmarkdown::render('docs/report_bee.Rmd')"
 
 clean: 
 	rm -rf data
 	rm -rf results
 	rm -rf src/eda_bee.html
-	rm -rf docs/report_bee.md docs/report_bee.html docs/report_bee.pdf
+	rm -rf docs/report_bee.html
 	rm -f src/figures/bee_df_hist.png src/figures/bee_df_jitter.png src/figures/bee_df_violin.png
 			
