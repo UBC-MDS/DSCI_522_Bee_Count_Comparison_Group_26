@@ -39,6 +39,7 @@ main <- function(input, out_dir){
     select(county, year, site_id, site_type, no_of_bees, sample_date)
   
   # write preprocessed data to the directory
+  dir.create(out_dir)
   write_csv(raw_data, paste0(out_dir, "processed_Bumble_Bee_Public_Data.csv"))
 }
 

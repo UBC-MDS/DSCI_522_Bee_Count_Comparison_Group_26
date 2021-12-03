@@ -42,6 +42,7 @@ main <- function(test_agri, test_nat, out_dir){
     select(-term)
 
   # Output analysis results table
+  dir.create(out_dir)
   saveRDS(analysis_table, file = paste0(out_dir, "/analysis_results.rds"))
 }
 
