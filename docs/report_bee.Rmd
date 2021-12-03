@@ -3,11 +3,11 @@ title: "Association between bumble bee count and site type in Southwestern Ontar
 authors: Katia Aristova, Simon Guo, John Lee, Adrianne Leung
 bibliography: references.bib
 output:
-  github_document:
+  pdf_document:
     toc: yes
   html_document:
     toc: yes
-  pdf_document:
+  github_document:
     toc: yes
 always_allow_html: yes
 ---
@@ -29,7 +29,7 @@ results <- readRDS("../results/analysis_results.rds")
 
 ## 1. Introduction
 
-Bumble bee population are experiencing rapid decline in North America. In the last 20 years, certain bumble bee species abundance decreased by 96% across the United States [\@cameron2011patterns]. This phenomenon is not limited to North America, European bee colonies also experience collapses and sudden bee deaths [\@bacandritsos2010sudden; \@scheper2014museum]. Researchers proposed a variety of associations and causes ranging from pesticide use [\@henry2012common], to mite infestation [\@brettell2017oldest], as all as habitat loss and climate change. The status of bee population health, diversity and abundance remains an important topic.
+Bumble bee population are experiencing rapid decline in North America. In the last 20 years, certain bumble bee species abundance decreased by 96% across the United States [@cameron2011patterns]. This phenomenon is not limited to North America, European bee colonies also experience collapses and sudden bee deaths [@bacandritsos2010sudden; @scheper2014museum]. Researchers proposed a variety of associations and causes ranging from pesticide use [@henry2012common], to mite infestation [@brettell2017oldest], as all as habitat loss and climate change. The status of bee population health, diversity and abundance remains an important topic.
 
 ### 1.1. Dataset
 
@@ -70,7 +70,7 @@ The below figure shows the jitter plot for the number of bees collected at each 
 knitr::include_graphics("../src/figures/bee_df_jitter.png")
 ```
 
-The histograms and the violin plots show that the data is skewed to the right because most counts are zero. Even if the response variable was continous (e.g. weight instead of count), using means would not be appropriate since the data is skewed.
+The histograms and the violin plots show that the data is skewed to the right because most counts are zero. Even if the response variable was continuous (e.g. weight instead of count), using means would not be appropriate since the data is skewed.
 
 Initially, the approach was to use grouped data by site id. This approached yielded more counts as the rows were summed. However, it was the wrong approach as each observation should be treated independently since they are independent and random observations.
 
@@ -92,17 +92,16 @@ In this project, all possible relationships will be analyzed:
 
 Poisson regression model and the zero-inflation model are two candidates for modeling the relationship between counts and site types.
 
-Counts is a discrete variable making Anova and permutation tests using means or medians inappropriate to use. According to [\@roback2021beyond], Poisson regression is a suitable model for this problem because it is typically used to model counts per unit of space or time. This is the case with the bee count survey. The parameter of interest is $\\lambda_i$ which is the average number of bees per unit of space. The formula for this model is: **$log(\\lambda_i = \\beta_0 + \\beta_1x_i)$**
+Counts is a discrete variable making Anova and permutation tests using means or medians inappropriate to use. According to [@roback2021beyond], Poisson regression is a suitable model for this problem because it is typically used to model counts per unit of space or time. This is the case with the bee count survey. The parameter of interest is $\lambda_i$ which is the average number of bees per unit of space. The formula for this model is: $log(\lambda_i = \beta_0 + \beta_1x_i)$
 
-\@roback2021beyond describe the following assumptions:
+[@roback2021beyond] describe the following assumptions:
 
-> <font size="2.5">1. Poisson Response: The response variable is a count per unit of time or space, described by a Poisson distribution.<br>
->
-> 1.  Independence: The observations must be independent of one another. <br>
-> 2.  Mean=Variance: By definition, the mean of a Poisson random variable must be equal to its variance. <br>
-> 3.  Linearity: The log of the mean rate, $log(\\lambda_i$), must be a linear function of $x$.</font>
+><font size="2.5">1. Poisson Response: The response variable is a count per unit of time or space, described by a Poisson distribution.<br>
+> 2.  Independence: The observations must be independent of one another. <br>
+> 3.  Mean=Variance: By definition, the mean of a Poisson random variable must be equal to its variance. <br>
+> 4.  Linearity: The log of the mean rate, $log(\lambda_i)$, must be a linear function of $x$.</font>
 
-*Source: direct quote from \@roback2021beyond*
+*Source: Direct quote from @roback2021beyond*
 
 The four assumptions are assessed in our dataset and we conclude the below:
 
@@ -113,7 +112,7 @@ The four assumptions are assessed in our dataset and we conclude the below:
 
 Given the limited knowledge about this dataset, we will proceed with the Poisson regression model.
 
-Tools used for the analysis include R[\@R], tidyverse[\@tidyverse], knitr[\@knitr].
+Tools used for the analysis include R[@R], tidyverse[@tidyverse], knitr[@knitr].
 
 **Sidenote:** The zero-inflation model is likely an even more suitable model for this dataset. However, it is more difficult to interpret and understand how to use it appropriately as our team does not have experience with this type of modelling. Zero-inflation model is used when a large number of counts is zero, which is the case in this dataset.
 
@@ -123,7 +122,7 @@ Tools used for the analysis include R[\@R], tidyverse[\@tidyverse], knitr[\@knit
 alpha <- 0.05
 ```
 
-To compare the differences in bee counts between site types, a significance level $\\alpha$ $=$ `r alpha` is used to evaluate the p-values of the Poisson regression test of the three pairs of baseline and response variables. We can see the results of the test in Table 2 below.
+To compare the differences in bee counts between site types, a significance level $\alpha$ $=$ `r alpha` is used to evaluate the p-values of the Poisson regression test of the three pairs of baseline and response variables. We can see the results of the test in Table 2 below.
 
 ### 4.1 Evaluation of p-value
 
