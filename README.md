@@ -55,20 +55,19 @@ The full EDA report can be found
 [here](https://github.com/UBC-MDS/DSCI_522_Bee_Count_Comparison_Group_26/blob/main/src/eda_bee.md "Exploratory data analysis report").
 
 ### 1.4 Methodology
-As observed in EDA, the the data is right skewed. To answer the inferential question posted above, we plan to do a hypothesis test for independence of a
-difference in medians of bee counts by site type using Poisson regression analysis. Since the response variable, count of bees, is discreet, Poisson is a more suitable regression test.
+As observed in EDA, the the data is right skewed. To answer the inferential question posted above, we plan to do a hypothesis test for independence of a difference in mean bee counts by site type using Poisson regression analysis. Since the response variable, count of bees, is discreet, Poisson is a more suitable regression test. In contrast with Linear regression, the coefficients in Poisson regression are multiplicative. The coefficient estimates need to be converted by putting *e* to the power of the estimate. The resulting number is the multiplicative difference in average bee counts (i.e. site type Natural has x times more bees on average than Agricultural).
 
 **One vs all**  
 Example:
-* Agricultural median vs natural median
-* Agricultural median vs semi-natural remnant median
-* Natural median vs semi-natural remnant median
+* Agricultural mean vs natural mean
+* Agricultural mean vs semi-natural remnant mean
+* Natural mean vs semi-natural remnant mean
 
 **Assumptions**  
 The Poisson regression analysis assumes that all observations are independent. As mentioned earlier, this assumption is likely satisfied as multiple observations were taken on the same day at each site using random sampling technique. More assumptions related to the use of regression are described in the full report.
 
 **Limitations**  
-The dataset is small. The exact collection methodology is unknown.
+The dataset is small. The exact collection methodology is unknown. Since the dataset was collected by the Ministry of Environment in Ontario, we assume that the data was sampled randomly and independently. The researchers controlled for seasonality by only sampling between May and August.
 
 ## 2. Usage
 
