@@ -147,7 +147,7 @@ Both the p-values and coefficients lead to the same conclusion.
 2.  For the pair of site types Agricultural and Natural remnant, it is not statistically significant that the bee counts are different.
 
 ```{r analysis results, echo=FALSE, message=FALSE, warning=FALSE}
-kable(results[,!names(results) %in% c("p.value")], caption = "Table 1. Analysis results",
+kable(results[,!names(results) %in% c("p.value")], caption = "Analysis results",
       col.names = c("Site type pairs",
                     "Estimate",
                     "Standard error",
