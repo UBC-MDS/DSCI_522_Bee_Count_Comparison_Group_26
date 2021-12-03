@@ -2,7 +2,7 @@
 # author: Simon Guo
 # date: 2021-12-02
 
-all: results/analysis_results.rds src/figures/bee_df_hist.png src/figures/Bumblebee_survey_area.png  src/figures/bee_df_jitter.png src/figures/bee_df_violin.png docs/report_bee.md docs/report_bee.html docs/report_bee.pdf
+all: results/analysis_results.rds src/figures/bee_df_hist.png src/figures/Bumblebee_survey_area.png  src/figures/bee_df_jitter.png src/figures/bee_df_violin.png src/eda_bee.html docs/report_bee.md docs/report_bee.html docs/report_bee.pdf
 
 # download data
 data/raw/Bumble_Bee_Public_Data.csv: src/download_data.py
