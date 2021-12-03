@@ -44,7 +44,7 @@ methodology. This project assumes the surveyors collected data using
 random sampling in a manner that is representative of the bee population
 in that region.
 
-<img src="../src/figures/Bumblebee_survey_area.png" title="Figure 1.Map of bee sites for sample collection" alt="Figure 1.Map of bee sites for sample collection" width="85%" />
+<img src="../src/figures/Bumblebee_survey_area.png" title="Map of bee sites for sample collection" alt="Map of bee sites for sample collection" width="85%" />
 
 ### 1.2. Research question
 
@@ -69,21 +69,21 @@ collected from different types of site. The distributions are highly
 right-skewed. The x axis of the following histogram was limited to 60 to
 show the shape of the distribution.
 
-<img src="../src/figures/bee_df_hist.png" title="Figure 2. The distribution of bee counts at each site type" alt="Figure 2. The distribution of bee counts at each site type" width="80%" />
+<img src="../src/figures/bee_df_hist.png" title="The distribution of bee counts at each site type" alt="The distribution of bee counts at each site type" width="80%" />
 
 The following violin plot shows not only the distribution of the number
 of bees but also the mean and median. The mean is shown as white dots,
 while the median is shown as black dots. In order to include all the
 data points, log scale was applied to the x-axis of the plot.
 
-<img src="../src/figures/bee_df_violin.png" title="Figure 3. The distribution of bee counts with the mean and median" alt="Figure 3. The distribution of bee counts with the mean and median" width="80%" />
+<img src="../src/figures/bee_df_violin.png" title="The distribution of bee counts with the mean and median" alt="The distribution of bee counts with the mean and median" width="80%" />
 
 The below figure shows the jitter plot for the number of bees collected
 at each site. The hypothesis testing would be required to find out
 whether the number of bees collected at each site is different from one
 another.
 
-<img src="../src/figures/bee_df_jitter.png" title="Figure 4. The distribution of the bees collected on different sites" alt="Figure 4. The distribution of the bees collected on different sites" width="100%" />
+<img src="../src/figures/bee_df_jitter.png" title="The distribution of the bees collected on different sites" alt="The distribution of the bees collected on different sites" width="100%" />
 
 The histograms and the violin plots show that the data is skewed to the
 right because most counts are zero. Even if the response variable was
