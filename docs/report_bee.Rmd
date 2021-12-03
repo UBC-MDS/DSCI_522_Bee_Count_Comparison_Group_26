@@ -80,6 +80,8 @@ The GPS coordinates were omitted the project is not looking at specific location
 
 We assume the data was collected in a way that is unbiased and generalizable to the Southwestern Ontario region. The dataset was collected by the Ministry of Environment, Conservation and Parks of Ontario, so it is likely they used randomized sampling techniques.
 
+All of the data was collected between May and August each year between 2015 and 2017. As a result, data collection controls for seasons (i.e. all site types are visited during same time periods, rather than having one site type visited in the fall and one in the summer).
+
 ## 3. Methodology
 
 In this project, all possible relationships will be analyzed:
