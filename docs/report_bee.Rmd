@@ -3,14 +3,8 @@ title: "Association between bumble bee count and site type in Southwestern Ontar
 authors: Katia Aristova, Simon Guo, John Lee, Adrianne Leung
 bibliography: references.bib
 output:
-#  pdf_document:
-#    toc: yes
   html_document:
-    toc: yes
-    keep_md: yes
-#  github_document:
-#    toc: yes
-#always_allow_html: yes
+    toc: true
 ---
 
 ```{r setup, include=FALSE}
