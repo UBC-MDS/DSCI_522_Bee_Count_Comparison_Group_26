@@ -70,37 +70,40 @@ The Poisson regression analysis assumes that all observations are independent. A
 The dataset is small. The exact collection methodology is unknown. Since the dataset was collected by the Ministry of Environment in Ontario, we assume that the data was sampled randomly and independently. The researchers controlled for seasonality by only sampling between May and August.
 
 ## 2. Usage
+### 2.1 Using Make file
 
+1. To replicate the report and analysis: clone the GitHub repo and install dependencies listed below. Run the following command from the root folder to create the report:
+`make all`
+
+2. To reset the repo to its original clean state, run the following:
+`make clean`
+### 2.2 Usage without Make file.
 To replicate the analysis, clone this GitHub repository, install the
 dependencies listed below, and run the following commands at the command
-line/terminal from the root directory of this project:
+line/terminal from the root directory of this project in the order below.
+Please note, this option creates additional files in the directory. They have to be removed manually.
+The preferable option is to use Make file (as described in section 2.2 above).
 
-```
 # download data
-
-python src/download_data.py --url=https://files.ontario.ca/moe_mapping/downloads/4Other/PHAP/Bumble_Bee_Public_Data.csv --out_file=data/raw/Bumble_Bee_Public_Data.csv
+`python src/download_data.py --url=https://files.ontario.ca/moe_mapping/downloads/4Other/PHAP/Bumble_Bee_Public_Data.csv --out_file=data/raw/Bumble_Bee_Public_Data.csv`
 
 # preprocess data
-
-Rscript src/preprocess.R --input=data/raw/Bumble_Bee_Public_data.csv --out_dir=data/processed/
-
+`Rscript src/preprocess.R --input=data/raw/Bumble_Bee_Public_data.csv --out_dir=data/processed/`
 
 # plot figures for eda report
-
-Rscript src/plot_eda_figures.R --csv_file=data/processed/processed_Bumble_Bee_Public_Data.csv --out_dir=src/figures
+`Rscript src/plot_eda_figures.R --csv_file=data/processed/processed_Bumble_Bee_Public_Data.csv --out_dir=src/figures`
 
 # run eda report and create html file
-Rscript -e "rmarkdown::render('src/eda_bee.md')"
+`Rscript -e "rmarkdown::render('src/eda_bee.md')"`
 
 # run analysis
-
-Rscript src/glm_analysis.R --file_path=data/processed/processed_Bumble_Bee_Public_Data.csv --output_folder=data/processed
+`Rscript src/glm_analysis.R --file_path=data/processed/processed_Bumble_Bee_Public_Data.csv --output_folder=data/processed`
 
 # run test results
-Rscript src/results_bee.R --test_agri=data/processed/agri_table.csv --test_nat=data/processed/nat_table.csv --out_dir=results
+`Rscript src/results_bee.R --test_agri=data/processed/agri_table.csv --test_nat=data/processed/nat_table.csv --out_dir=results`
 
 # render final report
-Rscript -e "rmarkdown::render('doc/report_bee.Rmd', output_format = 'html_document')"
+`Rscript -e "rmarkdown::render('doc/report_bee.Rmd', output_format = 'html_document')"`
 
 ```
 
