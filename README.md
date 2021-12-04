@@ -109,7 +109,7 @@ Rscript src/results_bee.R --test_agri=data/processed/agri_table.csv --test_nat=d
 Rscript -e "rmarkdown::render('doc/report_bee.Rmd', output_format = 'html_document')"
 ```
 
-### 2.3 Dependencies
+## 3. Dependencies
 
 -   Python 3.9.5 and Python packages:
     -   docopt==0.6.2
@@ -124,13 +124,13 @@ Rscript -e "rmarkdown::render('doc/report_bee.Rmd', output_format = 'html_docume
     -   testthat==3.1.0
     -   broom==0.7.9
 
-## 3. License
+## 4. License
 
 The materials used in this project are licensed under the Open
 Government Licence - Ontario. If re-using/re-mixing please provide
 attribution and link to this [webpage](https://www.ontario.ca/page/open-government-licence-ontario).
 
-## 4. References
+## 5. References
 
 Bacandritsos, N., Granato, A., Budge, G., Papanastasiou, I., Roinioti, E., Caldon, M., ... & Mutinelli, F. (2010). Sudden deaths and colony population decline in Greek honey bee colonies. _Journal of invertebrate pathology, 105_(3), 335-340.
 
@@ -140,4 +140,12 @@ Cameron, S. A., Lozier, J. D., Strange, J. P., Koch, J. B., Cordes, N., Solter, 
 
 Henry, M., Beguin, M., Requier, F., Rollin, O., Odoux, J. F., Aupinel, P., ... & Decourtye, A. (2012). A common pesticide decreases foraging success and survival in honey bees. _Science, 336(6079)_, 348-350.
 
+R Core Team. 2021. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. https://www.R-project.org/.
+
+Roback, Paul, and Julie Legler. 2021. Beyond Multiple Linear Regression: Applied Generalized Linear Models and Multilevel Models in r. CRC Press.
+
 Scheper, J., Reemer, M., van Kats, R., Ozinga, W. A., van der Linden, G. T., Schaminée, J. H., ... & Kleijn, D. (2014). Museum specimens reveal loss of pollen host plants as key factor driving wild bee decline in The Netherlands. _Proceedings of the National Academy of Sciences, 111_(49), 17552-17557.
+
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. “Welcome to the tidyverse.” Journal of Open Source Software 4 (43): 1686. https://doi.org/10.21105/joss.01686.
+
+Xie, Yihui. 2014. “Knitr: A Comprehensive Tool for Reproducible Research in R.” In Implementing Reproducible Computational Research, edited by Victoria Stodden, Friedrich Leisch, and Roger D. Peng. Chapman; Hall/CRC. http://www.crcpress.com/product/isbn/9781466561595.
