@@ -109,7 +109,7 @@ Rscript src/results_bee.R --test_agri=data/processed/agri_table.csv --test_nat=d
 Rscript -e "rmarkdown::render('doc/report_bee.Rmd', output_format = 'html_document')"
 ```
 
-### 2.1 Dependencies
+### 2.3 Dependencies
 
 -   Python 3.9.5 and Python packages:
     -   docopt==0.6.2
