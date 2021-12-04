@@ -86,6 +86,7 @@ line/terminal from the root directory of this project in the order below.
 Please note, this option creates additional files in the directory. They have to be removed manually.
 The preferable option is to use Make file (as described in section 2.2 above).
 
+```
 # download data
 python src/download_data.py --url=https://files.ontario.ca/moe_mapping/downloads/4Other/PHAP/Bumble_Bee_Public_Data.csv --out_file=data/raw/Bumble_Bee_Public_Data.csv
 
@@ -106,7 +107,6 @@ Rscript src/results_bee.R --test_agri=data/processed/agri_table.csv --test_nat=d
 
 # render final report
 Rscript -e "rmarkdown::render('doc/report_bee.Rmd', output_format = 'html_document')"
-
 ```
 
 ### 2.1 Dependencies
