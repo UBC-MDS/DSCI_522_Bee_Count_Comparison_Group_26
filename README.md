@@ -46,16 +46,20 @@ Each row of the data set represents the number of bee counts of each species at 
 Prior to analysis, we performed EDA to assess the type of distribution and density of bee counts at each type of site, as well as to assess median and mean of bee counts at each site type. The distribution of bee counts of types of site are represented with histogram plot:
 
 ![fig 1](https://github.com/UBC-MDS/DSCI_522_Bee_Count_Comparison_Group_26/blob/main/src/figures/bee_df_hist.png)
+*Figure 1: The plot above displays the right skew in the bee count. The majority of samples have a count of zero. This is not surprising considering that bees are likely to congregate in certain areas and be absent from others.*
 
 and the density is displayed with violin plots combined with indication of median and mean values of bee counts on the same plot:
 
 ![fig 2](https://github.com/UBC-MDS/DSCI_522_Bee_Count_Comparison_Group_26/blob/main/src/figures/bee_df_violin.png)
+*Figure 2: The plot shows that visibly there are difference in the mean and median values between sites. However, since they are counts, they cannot be simply compared with averages. The plot also underlines how the data is skewed.*
 
 The full EDA report can be found
 [here](https://github.com/UBC-MDS/DSCI_522_Bee_Count_Comparison_Group_26/blob/main/src/eda_bee.md "Exploratory data analysis report").
 
 ### 1.4 Methodology
 As observed in EDA, the the data is right skewed. To answer the inferential question posted above, we plan to do a hypothesis test for independence of a difference in mean bee counts by site type using Poisson regression analysis. Since the response variable, count of bees, is discreet, Poisson is a more suitable regression test. In contrast with Linear regression, the coefficients in Poisson regression are multiplicative. The coefficient estimates need to be converted by putting *e* to the power of the estimate. The resulting number is the multiplicative difference in average bee counts (i.e. site type Natural has x times more bees on average than Agricultural).
+
+*Note: an even better model to analyze the dataset would be the zero-inflation model. However, the authors of this project lack knowledge of this model.*
 
 **One vs all**  
 Example:
@@ -72,8 +76,29 @@ The dataset is small. The exact collection methodology is unknown. Since the dat
 ## 2.Report
 The final report can be found [here](https://github.com/UBC-MDS/DSCI_522_Bee_Count_Comparison_Group_26/blob/main/docs/report_bee.md).
 
+### 2.1 Results
+The results show that the p-values for the Agricultural and Natural pair at 0.064. Therefore we fail to reject the null hypothesis that there is a difference in the average counts for this combination.
+However, agricultural vs semi-natural remnant and natural vs semi-natural remnant are 0.000 and 0.005 respectively, indicating significance at the alpha level of 0.05. Therefore, we reject the null hypithesis.
+
+The average count of bees is 1.222 times higher for the semi-natural remnant sites, and 1.132 times higher than in the natural sites.
+
+These indicate that the semi-natural sites offer some attractive qualities to the bees. In the future, it would be important to examine these in more detail and attempt linear regression or machine learning models to see which site features are the most critical.
+
+*Side note*
+To see results of the zero-inflation model please see the jupyter notebook section 5.3 [here](https://github.com/UBC-MDS/DSCI_522_Bee_Count_Comparison_Group_26/blob/main/src/literate_code/main_literal_code_analysis.ipynb).
+
 ## 3. Usage
-### 3.1 Using Make file
+
+### 3.1. Using Docker (preferred)
+1. To replicate the report and analysis: clone the GitHub repo. Run the following command from the root folder to create the report:
+
+`docker run --rm -v /$(pwd)://home//rstudio//bee_count max780228/bee_count make -C //home//rstudio//bee_count all`
+
+2. To reset the repo to its original clean state, run the following:
+
+`docker run --rm -v /$(pwd)://home//rstudio//bee_count max780228/bee_count make -C //home//rstudio//bee_count clean`
+
+### 3.2 Using Make file
 
 1. To replicate the report and analysis: clone the GitHub repo and install dependencies listed below. Run the following command from the root folder to create the report:
 
@@ -82,35 +107,7 @@ The final report can be found [here](https://github.com/UBC-MDS/DSCI_522_Bee_Cou
 2. To reset the repo to its original clean state, run the following:
 
 `make clean`
-### 3.2 Usage without Make file.
-To replicate the analysis, clone this GitHub repository, install the
-dependencies listed below, and run the following commands at the command
-line/terminal from the root directory of this project in the order below.
-Please note, this option creates additional files in the directory. They have to be removed manually.
-The preferable option is to use Make file (as described in section 2.2 above).
 
-```
-# download data
-python src/download_data.py --url=https://files.ontario.ca/moe_mapping/downloads/4Other/PHAP/Bumble_Bee_Public_Data.csv --out_file=data/raw/Bumble_Bee_Public_Data.csv
-
-# preprocess data
-Rscript src/preprocess.R --input=data/raw/Bumble_Bee_Public_data.csv --out_dir=data/processed/
-
-# plot figures for eda report
-Rscript src/plot_eda_figures.R --csv_file=data/processed/processed_Bumble_Bee_Public_Data.csv --out_dir=src/figures
-
-# run eda report and create html file
-Rscript -e "rmarkdown::render('src/eda_bee.md')"
-
-# run analysis
-Rscript src/glm_analysis.R --file_path=data/processed/processed_Bumble_Bee_Public_Data.csv --output_folder=data/processed
-
-# run test results
-Rscript src/results_bee.R --test_agri=data/processed/agri_table.csv --test_nat=data/processed/nat_table.csv --out_dir=results
-
-# render final report
-Rscript -e "rmarkdown::render('doc/report_bee.Rmd', output_format = 'html_document')"
-```
 
 ## 4. Dependencies
 
