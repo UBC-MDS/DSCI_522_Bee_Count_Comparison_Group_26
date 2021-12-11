@@ -38,9 +38,6 @@ main <- function(file_path, output_folder) {
   agri_table <- tidy(pois_lr_agri)
   nat_table <- tidy(pois_lr_natural)
   
-  # write.csv(agri_table, "agri_table.csv", row.names = FALSE)
-  # write.csv(nat_table, "nat_table.csv", row.names = FALSE)
-  
   # Output analysis results table
   write.csv(agri_table, file = paste0(output_folder, "/agri_table.csv"), row.names = FALSE)
   write.csv(nat_table, file = paste0(output_folder, "/nat_table.csv"), row.names = FALSE)
