@@ -9,17 +9,12 @@ FROM rocker/tidyverse
 RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   && install2.r --error \
     --deps TRUE \
-    cowsay \
-    here \
-    ggridges \
-    broom \
-    testthat \
-    boot \
-    ggplot2 \
+    knitr \
     docopt \
-    ggthemes \
-    e1071 \
-    caret 
+    ggplot2 \
+    boot \
+    testthat \
+    broom 
 
 # install the kableExtra package using install.packages
 RUN Rscript -e "install.packages('kableExtra')"
@@ -42,5 +37,7 @@ ENV PATH="/opt/conda/bin:${PATH}"
 # install docopt python package
 RUN conda install -y -c anaconda \ 
     docopt \
-    pandas \
-    requests
+    requests \
+    pandas
+    
+RUN conda install -y -c conda-forge feather-format
