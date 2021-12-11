@@ -124,7 +124,7 @@ Rscript -e "rmarkdown::render('doc/report_bee.Rmd', output_format = 'html_docume
     -   testthat==3.1.0
     -   broom==0.7.9
 
-Dependency diagram (created by [makefile2graph](https://github.com/lindenb/makefile2graph):
+Dependency diagram (created by [makefile2graph](https://github.com/lindenb/makefile2graph)):
 ![Dependency diagram](https://github.com/UBC-MDS/DSCI_522_Bee_Count_Comparison_Group_26/blob/main/dependency_diagram.png)
 
 
