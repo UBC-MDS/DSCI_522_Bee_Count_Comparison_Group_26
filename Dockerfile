@@ -1,3 +1,5 @@
+# Authors: John Lee, Adrianne Leung, Katia Aristova, Simon Guo
+
 # Docker file for the bee count project
 # Adapted from Tiffany Timber's work 
 # Source: https://github.com/ttimbers/breast_cancer_predictor/blob/master/Dockerfile
