@@ -69,8 +69,11 @@ The Poisson regression analysis assumes that all observations are independent. A
 **Limitations**  
 The dataset is small. The exact collection methodology is unknown. Since the dataset was collected by the Ministry of Environment in Ontario, we assume that the data was sampled randomly and independently. The researchers controlled for seasonality by only sampling between May and August.
 
-## 2. Usage
-### 2.1 Using Make file
+## 2.Report
+The final report can be found [here](https://github.com/UBC-MDS/DSCI_522_Bee_Count_Comparison_Group_26/blob/main/docs/report_bee.md).
+
+## 3. Usage
+### 3.1 Using Make file
 
 1. To replicate the report and analysis: clone the GitHub repo and install dependencies listed below. Run the following command from the root folder to create the report:
 
@@ -79,7 +82,7 @@ The dataset is small. The exact collection methodology is unknown. Since the dat
 2. To reset the repo to its original clean state, run the following:
 
 `make clean`
-### 2.2 Usage without Make file.
+### 3.2 Usage without Make file.
 To replicate the analysis, clone this GitHub repository, install the
 dependencies listed below, and run the following commands at the command
 line/terminal from the root directory of this project in the order below.
@@ -109,7 +112,7 @@ Rscript src/results_bee.R --test_agri=data/processed/agri_table.csv --test_nat=d
 Rscript -e "rmarkdown::render('doc/report_bee.Rmd', output_format = 'html_document')"
 ```
 
-## 3. Dependencies
+## 4. Dependencies
 
 -   Python 3.9.5 and Python packages:
     -   docopt==0.6.2
@@ -128,13 +131,13 @@ Dependency diagram (created by [makefile2graph](https://github.com/lindenb/makef
 ![Dependency diagram](https://github.com/UBC-MDS/DSCI_522_Bee_Count_Comparison_Group_26/blob/main/dependency_diagram.png)
 
 
-## 4. License
+## 5. License
 
 The materials used in this project are licensed under the Open
 Government Licence - Ontario. If re-using/re-mixing please provide
 attribution and link to this [webpage](https://www.ontario.ca/page/open-government-licence-ontario).
 
-## 5. References
+## 6. References
 
 Bacandritsos, N., Granato, A., Budge, G., Papanastasiou, I., Roinioti, E., Caldon, M., ... & Mutinelli, F. (2010). Sudden deaths and colony population decline in Greek honey bee colonies. _Journal of invertebrate pathology, 105_(3), 335-340.
 
