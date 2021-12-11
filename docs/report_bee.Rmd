@@ -1,10 +1,15 @@
 ---
 title: "Association between bumble bee count and site type in Southwestern Ontario"
-authors: Katia Aristova, Simon Guo, John Lee, Adrianne Leung
+author: "Katia Aristova, Simon Guo, John Lee, Adrianne Leung"
 bibliography: references.bib
 output:
+  pdf_document:
+    toc: yes
   html_document:
-    toc: true
+    toc: yes
+  github_document:
+    toc: yes
+always_allow_html: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -30,9 +35,13 @@ Bumble bee population are experiencing rapid decline in North America. In the la
 
 This report analyzes the Bumble Bee Diversity and Abundance Survey conducted by the Ministry of Environment, Conservation and Parks of Ontario. The data was collected between 2015-2017 in 67 locations across Southern Ontario, as can be explored in this map: [view](https://data.ontario.ca/dataset/bumble-bee-diversity-and-abundance-survey). The dataset is accessible on the Ontario Open data website: [view](https://data.ontario.ca/dataset/bumble-bee-diversity-and-abundance-survey). The surveyors recorded multiple variables including bee species, bee types, county names and flowers found on the site. The dataset description did not provide information regarding collection methodology. This project assumes the surveyors collected data using random sampling in a manner that is representative of the bee population in that region.
 
-```{r map, echo=FALSE, fig.cap="Figure 1. Map of bee sites for sample collection", fig.height=10, fig.width=10, out.width="85%"}
+```{r map, echo=FALSE, fig.cap="Figure 1.Map of bee sites for sample collection", fig.height=10, fig.width=10, out.width="85%"}
 knitr::include_graphics("../src/figures/Bumblebee_survey_area.png")
 ```
+
+
+*Source: Image from interactive map of Bumble Bee Diversity and Abundance Survey [website](http://www.moegisportal.ca/agol/AccessibleViewer/index.html?appid=e38703b018ff4e3ca09f2878879a4e34)*
+
 
 ### 1.2. Research question
 
