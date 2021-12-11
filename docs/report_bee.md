@@ -1,6 +1,7 @@
 Association between bumble bee count and site type in Southwestern
 Ontario
 ================
+Katia Aristova, Simon Guo, John Lee, Adrianne Leung
 
 -   [1. Introduction](#1-introduction)
     -   [1.1. Dataset](#11-dataset)
@@ -44,9 +45,10 @@ methodology. This project assumes the surveyors collected data using
 random sampling in a manner that is representative of the bee population
 in that region.
 
-<img src="../src/figures/Bumblebee_survey_area.png" title="Figure 1. Map of bee sites for sample collection" alt="Figure 1. Map of bee sites for sample collection" width="85%" />
-
-Figure 1. Map of bee sites for sample collection
+<img src="../src/figures/Bumblebee_survey_area.png" title="Figure 1.Map of bee sites for sample collection" alt="Figure 1.Map of bee sites for sample collection" width="85%" />
+*Source: Image from interactive map of Bumble Bee Diversity and
+Abundance Survey
+[website](http://www.moegisportal.ca/agol/AccessibleViewer/index.html?appid=e38703b018ff4e3ca09f2878879a4e34)*
 
 ### 1.2. Research question
 
@@ -73,8 +75,6 @@ show the shape of the distribution.
 
 <img src="../src/figures/bee_df_hist.png" title="Figure 2. The distribution of bee counts at each site type" alt="Figure 2. The distribution of bee counts at each site type" width="80%" />
 
-Figure 2. The distribution of bee counts at each site type
-
 The following violin plot shows not only the distribution of the number
 of bees but also the mean and median. The mean is shown as white dots,
 while the median is shown as black dots. In order to include all the
@@ -82,16 +82,12 @@ data points, log scale was applied to the x-axis of the plot.
 
 <img src="../src/figures/bee_df_violin.png" title="Figure 3. The distribution of bee counts with the mean and median" alt="Figure 3. The distribution of bee counts with the mean and median" width="80%" />
 
-Figure 3. The distribution of bee counts with the mean and median
-
 The below figure shows the jitter plot for the number of bees collected
 at each site. The hypothesis testing would be required to find out
 whether the number of bees collected at each site is different from one
 another.
 
 <img src="../src/figures/bee_df_jitter.png" title="Figure 4. The distribution of the bees collected on different sites" alt="Figure 4. The distribution of the bees collected on different sites" width="100%" />
-
-Figure 4. The distribution of the bees collected on different sites
 
 The histograms and the violin plots show that the data is skewed to the
 right because most counts are zero. Even if the response variable was
