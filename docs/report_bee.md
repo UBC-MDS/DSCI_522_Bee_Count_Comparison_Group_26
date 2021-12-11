@@ -237,8 +237,6 @@ Both the p-values and coefficients lead to the same conclusion.
 2.  For the pair of site types Agricultural and Natural remnant, it is
     not statistically significant that the bee counts are different.
 
-Table 1. Analysis results
-
 <table class="table" style="width: auto !important; ">
 <caption>
 Table 1. Analysis results
