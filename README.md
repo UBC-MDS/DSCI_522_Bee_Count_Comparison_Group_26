@@ -92,11 +92,11 @@ To see results of the zero-inflation model please see the jupyter notebook secti
 ### 3.1. Using Docker (preferred)
 1. To replicate the report and analysis: clone the GitHub repo. Run the following command from the root folder to create the report:
 
-`docker run --rm -v /$(pwd)://home//rstudio//bee_count max780228/bee_count make -C //home//rstudio//bee_count all`
+`docker run --rm -v /$(pwd)://home//rstudio//bee_count johnwslee/bee_count make -C //home//rstudio//bee_count all`
 
 2. To reset the repo to its original clean state, run the following:
 
-`docker run --rm -v /$(pwd)://home//rstudio//bee_count max780228/bee_count make -C //home//rstudio//bee_count clean`
+`docker run --rm -v /$(pwd)://home//rstudio//bee_count johnwslee/bee_count make -C //home//rstudio//bee_count clean`
 
 ### 3.2 Using Make file
 
